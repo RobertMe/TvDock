@@ -2,7 +2,8 @@ TARGET = harbour-tvdock
 
 QT += quick qml
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    trakt.cpp
 
 CONFIG += link_pkgconfig
 PKGCONFIG += sailfishapp
@@ -27,3 +28,8 @@ LIBS += -L../libtraqt -ltraqt
 
 #Needed by qmake to figure that this is a dep.
 PRE_TARGETDEPS += ../libtraqt/libtraqt.a
+
+HEADERS += \
+    trakt.h \
+    oauth-tokens.h
+

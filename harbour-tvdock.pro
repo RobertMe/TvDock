@@ -5,12 +5,12 @@ SUBDIRS += \
     libtraqt \
     src
 
-OTHER_FILES += qml/harbour-tvdock.qml \
+OTHER_FILES += \
     qml/cover/CoverPage.qml \
-    qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
+    qml/pages/Authenticate.qml \
     rpm/harbour-tvdock.changes.in \
     rpm/harbour-tvdock.spec \
     rpm/harbour-tvdock.yaml \
     translations/*.ts \
-    harbour-tvdock.desktop
+    harbour-tvdock.desktop \
+    qml/main.qml
