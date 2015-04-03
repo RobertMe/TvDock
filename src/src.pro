@@ -1,0 +1,29 @@
+TARGET = harbour-tvdock
+
+QT += quick qml
+
+SOURCES += main.cpp
+
+CONFIG += link_pkgconfig
+PKGCONFIG += sailfishapp
+INCLUDEPATH += /usr/include/sailfishapp
+
+target.path = /usr/bin
+
+qml.files = ../qml
+qml.path = /usr/share/$${TARGET}
+
+desktop.files = ../$${TARGET}.desktop
+desktop.path = /usr/share/applications
+
+icon.files = ../$${TARGET}.png
+icon.path = /usr/share/icons/hicolor/86x86/apps
+
+INSTALLS += target desktop icon qml
+
+INCLUDEPATH += $${PWD}/../
+
+LIBS += -L../libtraqt -ltraqt
+
+#Needed by qmake to figure that this is a dep.
+PRE_TARGETDEPS += ../libtraqt/libtraqt.a

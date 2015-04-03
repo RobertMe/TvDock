@@ -1,0 +1,3 @@
+[submodule "libtraqt"]
+	path = libtraqt
+	url = git@github.com:RobertMe/libtraqt.git
