@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import harbour.tvdock 1.0
 
 
 Page {
@@ -14,7 +15,7 @@ Page {
 
             var match = url.toString().match(regexp);
             if (match) {
-                trakt.authenticator.authorizeCode(match[1]);
+                trakt.authenticator.authorize(TraktAuthenticator.GrantAccessCode, match[1]);
             }
         }
     }

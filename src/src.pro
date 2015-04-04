@@ -3,7 +3,8 @@ TARGET = harbour-tvdock
 QT += quick qml
 
 SOURCES += main.cpp \
-    trakt.cpp
+    trakt.cpp \
+    settings.cpp
 
 CONFIG += link_pkgconfig
 PKGCONFIG += sailfishapp
@@ -31,5 +32,7 @@ PRE_TARGETDEPS += ../libtraqt/libtraqt.a
 
 HEADERS += \
     trakt.h \
-    oauth-tokens.h
+    oauth-tokens.h \
+    oauth-tokens.h \
+    settings.h
 

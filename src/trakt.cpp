@@ -1,6 +1,7 @@
 #include "trakt.h"
 
 #include <QtQuick>
+#include "libtraqt/traktconnection.h"
 
 Trakt::Trakt(QObject *parent) :
     QObject(parent)
@@ -16,4 +17,5 @@ TraktAuthenticator* Trakt::authenticator() const
 void Trakt::setAuthenticator(TraktAuthenticator *authenticator)
 {
     m_authenticator = authenticator;
+    TraktConnection::instance()->setAuthenticator(authenticator);
 }
