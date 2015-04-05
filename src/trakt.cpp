@@ -18,4 +18,5 @@ void Trakt::setAuthenticator(TraktAuthenticator *authenticator)
 {
     m_authenticator = authenticator;
     TraktConnection::instance()->setAuthenticator(authenticator);
+    emit authenticatorChanged();
 }

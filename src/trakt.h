@@ -8,12 +8,15 @@
 class Trakt : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(TraktAuthenticator *authenticator READ authenticator WRITE setAuthenticator)
+    Q_PROPERTY(TraktAuthenticator *authenticator READ authenticator WRITE setAuthenticator NOTIFY authenticatorChanged)
 public:
     explicit Trakt(QObject *parent = 0);
 
     TraktAuthenticator* authenticator() const;
     void setAuthenticator(TraktAuthenticator *authenticator);
+
+signals:
+    void authenticatorChanged();
 
 private:
     TraktAuthenticator *m_authenticator;
