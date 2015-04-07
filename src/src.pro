@@ -36,3 +36,5 @@ HEADERS += \
     oauth-tokens.h \
     settings.h
 
+RESOURCES += ../translations/translations.qrc
+

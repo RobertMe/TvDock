@@ -13,4 +13,9 @@ OTHER_FILES += \
     rpm/harbour-tvdock.yaml \
     translations/*.ts \
     harbour-tvdock.desktop \
-    qml/main.qml
+    qml/main.qml \
+    qml/pages/MainMenu.qml \
+    qml/pages/Movies.qml
+
+TRANSLATIONS += \
+    translations/harbour-tvdock_en.ts

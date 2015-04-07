@@ -1,0 +1,4 @@
+#!/bin/bash
+
+lupdate ./harbour-tvdock.pro
+lrelease -idbased ./harbour-tvdock.pro

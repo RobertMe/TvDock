@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>harbour-tvdock_en.qm</file>
+    </qresource>
+</RCC>
