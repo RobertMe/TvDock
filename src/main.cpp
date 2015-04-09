@@ -5,6 +5,7 @@
 #include "trakt.h"
 #include "oauth-tokens.h"
 #include "settings.h"
+#include "cacheimage.h"
 
 
 int main(int argc, char *argv[])
@@ -35,6 +36,8 @@ int main(int argc, char *argv[])
     QObject::connect(&authenticator, &TraktAuthenticator::tokensReceived, &settings, &Settings::setTraktRefreshToken);
 
     authenticator.authorize(TraktAuthenticator::GrantRefreshToken, settings.traktRefreshToken());
+
+    qmlRegisterType<CacheImage>("harbour.tvdock", 1, 0, "CacheImage");
 
     QQuickView *view = SailfishApp::createView();
     view->engine()->rootContext()->setContextProperty("trakt", &trakt);

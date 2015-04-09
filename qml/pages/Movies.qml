@@ -47,10 +47,13 @@ Page {
         delegate: ListItem {
             width: grid.cellWidth
            Image {
-               source: images.poster.thumb
                width: grid.cellWidth
                height: grid.cellHeight
                fillMode: Image.PreserveAspectFit
+
+               CacheImage {
+                   source: images.poster.thumb
+               }
            }
         }
     }

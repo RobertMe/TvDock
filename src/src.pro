@@ -4,7 +4,9 @@ QT += quick qml
 
 SOURCES += main.cpp \
     trakt.cpp \
-    settings.cpp
+    settings.cpp \
+    cacheimage.cpp \
+    imagecache.cpp
 
 CONFIG += link_pkgconfig
 PKGCONFIG += sailfishapp
@@ -34,7 +36,9 @@ HEADERS += \
     trakt.h \
     oauth-tokens.h \
     oauth-tokens.h \
-    settings.h
+    settings.h \
+    cacheimage.h \
+    imagecache.h
 
 RESOURCES += ../translations/translations.qrc
 
