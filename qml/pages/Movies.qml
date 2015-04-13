@@ -46,15 +46,19 @@ Page {
 
         delegate: ListItem {
             width: grid.cellWidth
-           Image {
-               width: grid.cellWidth
-               height: grid.cellHeight
-               fillMode: Image.PreserveAspectFit
+            height: grid.cellHeight
 
-               CacheImage {
-                   source: images.poster.thumb
-               }
-           }
+            onClicked: pageStack.push("MovieDetails.qml", {movie: grid.model.at(index)})
+
+            Image {
+                width: grid.cellWidth
+                height: grid.cellHeight
+                fillMode: Image.PreserveAspectFit
+
+                CacheImage {
+                    source: images.poster.thumb
+                }
+            }
         }
     }
 }

@@ -15,7 +15,10 @@ OTHER_FILES += \
     harbour-tvdock.desktop \
     qml/main.qml \
     qml/pages/MainMenu.qml \
-    qml/pages/Movies.qml
+    qml/pages/Movies.qml \
+    qml/pages/MovieDetails.qml \
+    qml/components/FlickableLabel.qml \
+    qml/components/Flipable.qml
 
 TRANSLATIONS += \
     translations/harbour-tvdock_en.ts
