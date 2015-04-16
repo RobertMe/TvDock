@@ -132,13 +132,12 @@ Page {
                 }
             }
         }
-        Column {
+        PeopleOverview {
             height: view.cellHeight
             width: view.cellWidth
-            Label {
-                text: "People"
-            }
+            people: movie.people
         }
+
         Column {
             height: view.cellHeight
             width: view.cellWidth
@@ -171,6 +170,7 @@ Page {
             bottom: parent.bottom
             leftMargin: Theme.paddingLarge
             rightMargin: Theme.paddingLarge
+            topMargin: -Theme.paddingLarge
         }
 
         model: itemModel

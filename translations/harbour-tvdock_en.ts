@@ -49,6 +49,18 @@
         <extracomment>Trailer of movie/show/...</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message id="item-cast">
+        <location filename="../qml/components/PeopleOverview.qml" line="13"/>
+        <source>Cast</source>
+        <extracomment>&quot;Cast&quot; heading of item details</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="item-crew">
+        <location filename="../qml/components/PeopleOverview.qml" line="44"/>
+        <source>Crew</source>
+        <extracomment>&quot;Crew&quot; heading of item details</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CoverPage</name>
