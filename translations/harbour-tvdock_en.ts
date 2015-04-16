@@ -3,28 +3,31 @@
 <TS version="2.1" language="en_US">
 <context>
     <name></name>
-    <message id="movies-popular">
-        <location filename="../qml/pages/Movies.qml" line="36"/>
-        <source>Popular</source>
-        <extracomment>List popular movies</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message id="movies-trending">
-        <location filename="../qml/pages/Movies.qml" line="29"/>
-        <source>Trending</source>
-        <extracomment>List trending movies</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
     <message id="movies-header">
-        <location filename="../qml/pages/Movies.qml" line="22"/>
+        <location filename="../qml/pages/Movies.qml" line="19"/>
         <source>Movies: %1</source>
         <extracomment>Header of movies listing, containing the mode name</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="menu-movies">
-        <location filename="../qml/pages/MainMenu.qml" line="14"/>
+        <location filename="../qml/pages/MainMenu.qml" line="52"/>
         <source>Movies</source>
-        <extracomment>&quot;Movies&quot; entry in the main menu</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="list-trending">
+        <location filename="../qml/pages/MainMenu.qml" line="57"/>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="list-popular">
+        <location filename="../qml/pages/MainMenu.qml" line="76"/>
+        <source>Popular</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="menu-show-all">
+        <location filename="../qml/components/MainMenuList.qml" line="22"/>
+        <location filename="../qml/components/MainMenuList.qml" line="33"/>
+        <source>Show all</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="item-rating">

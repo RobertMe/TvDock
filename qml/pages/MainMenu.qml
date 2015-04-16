@@ -1,45 +1,95 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import harbour.tvdock 1.0
+import "../components"
 
 Page {
     id: page
+    allowedOrientations: Orientation.All
 
-    ListModel {
-        id: menuItems
-
-        ListElement {
-            //: "Movies" entry in the main menu
-            //% "Movies"
-            title: QT_TRID_NOOP("menu-movies")
-            pageName: "Movies.qml"
-        }
-    }
-
-    SilicaListView {
+    SilicaFlickable {
         anchors.fill: parent
-        header: PageHeader {
-            title: "TVDock"
-        }
+        contentHeight: videosContainer.height
 
-        model: menuItems
-        delegate: ListItem {
-            height: Theme.itemSizeLarge
-            Label {
-                anchors {
-                    verticalCenter: parent.verticalCenter
-                    left: parent.left
-                    right: parent.right
-                    leftMargin: Theme.paddingLarge
-                    rightMargin: Theme.paddingLarge
+        Flipable {
+            id: videosContainer
+            width: parent.width
+            height: moviesColumn.height
+            page: page
+
+            Column {
+                id: moviesColumn
+                width: videosContainer.itemWidth
+                height: childrenRect.height
+
+                TraktMovies {
+                    id: movies
                 }
 
-                text: qsTrId(title)
-                color: Theme.highlightColor
-                truncationMode: TruncationMode.Fade
-            }
+                Component {
+                    id: movieComponent
+                    ListItem {
+                        width: 150
+                        height: width * 1.5
 
-            onClicked: pageStack.push(pageName)
+                        Image {
+                            width: 150
+                            height: width * 1.5
+                            fillMode: Image.PreserveAspectFit
+
+                            CacheImage {
+                                source: images.poster.thumb
+                            }
+                        }
+
+                        onClicked: pageStack.push("MovieDetails.qml", {movie: parent.parent.sourceModel.at(index)});
+                    }
+                }
+
+                PageHeader {
+                    width: page.isPortrait ? parent.width : implicitWidth
+                    //% "Movies"
+                    title: qsTrId("menu-movies")
+                }
+
+                SectionHeader {
+                    //% "Trending"
+                    text: qsTrId("list-trending")
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: pageStack.push("Movies.qml", {model: trendingMovies.sourceModel, mode: "trending"})
+                    }
+                }
+
+                MainMenuList {
+                    id: trendingMovies
+                    width: parent.width
+                    height: 225
+                    sourceModel: movies.trending()
+                    delegate: movieComponent
+                    onShowAll: pageStack.push("Movies.qml", {model: sourceModel, mode: "trending"})
+                }
+
+                SectionHeader {
+                    //% "Popular"
+                    text: qsTrId("list-popular")
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: pageStack.push("Movies.qml", {model: popularMovies.sourceModel, mode: "popular"})
+                    }
+                }
+
+                MainMenuList {
+                    id: popularMovies
+                    width: parent.width
+                    height: 225
+                    sourceModel: movies.popular()
+                    delegate: movieComponent
+                    onShowAll: pageStack.push("Movies.qml", {model: sourceModel, mode: "popular"})
+                }
+            }
         }
     }
 }

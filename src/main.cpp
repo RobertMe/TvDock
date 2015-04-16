@@ -6,6 +6,7 @@
 #include "oauth-tokens.h"
 #include "settings.h"
 #include "cacheimage.h"
+#include "limitedmodel.h"
 
 
 int main(int argc, char *argv[])
@@ -38,6 +39,8 @@ int main(int argc, char *argv[])
     authenticator.authorize(TraktAuthenticator::GrantRefreshToken, settings.traktRefreshToken());
 
     qmlRegisterType<CacheImage>("harbour.tvdock", 1, 0, "CacheImage");
+    qmlRegisterType<LimitedModel>("harbour.tvdock", 1, 0, "LimitedModel");
+    qmlRegisterUncreatableType<QAbstractItemModel>("harbour.tvdock", 1, 0, "AbstractItemModel", "Needed for QSortFilterProxyModel::sourceModel");
 
     QQuickView *view = SailfishApp::createView();
     view->engine()->rootContext()->setContextProperty("trakt", &trakt);

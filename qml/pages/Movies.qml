@@ -6,41 +6,20 @@ Page {
     id: page
     allowedOrientations: Orientation.All
     property string mode: "popular"
-
-    TraktMovies {
-        id: movies
-    }
+    property alias model: grid.model
 
     SilicaGridView {
         id: grid
 
-        property int columnCount: Math.round(parent.width / 200)
+        property int columnCount: Math.round(parent.width / 150)
 
         header: PageHeader {
             //: Header of movies listing, containing the mode name
             //% "Movies: %1"
-            title: qsTrId("movies-header").arg(qsTrId("movies-" + page.mode));
-        }
-
-        PullDownMenu {
-            MenuItem {
-                //: List trending movies
-                //% "Trending"
-                text: qsTrId("movies-trending")
-                onClicked: page.mode = "trending"
-                visible: page.mode != "trending"
-            }
-            MenuItem {
-                //: List popular movies
-                //% "Popular"
-                text: qsTrId("movies-popular")
-                onClicked: page.mode = "popular"
-                visible: page.mode != "popular"
-            }
+            title: qsTrId("movies-header").arg(qsTrId("list-" + page.mode));
         }
 
         anchors.fill: parent
-        model: movies[page.mode]()
         cellWidth: parent.width / columnCount
         cellHeight: cellWidth * 1.5
 

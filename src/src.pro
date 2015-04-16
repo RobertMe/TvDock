@@ -6,7 +6,8 @@ SOURCES += main.cpp \
     trakt.cpp \
     settings.cpp \
     cacheimage.cpp \
-    imagecache.cpp
+    imagecache.cpp \
+    limitedmodel.cpp
 
 CONFIG += link_pkgconfig
 PKGCONFIG += sailfishapp
@@ -38,7 +39,8 @@ HEADERS += \
     oauth-tokens.h \
     settings.h \
     cacheimage.h \
-    imagecache.h
+    imagecache.h \
+    limitedmodel.h
 
 RESOURCES += ../translations/translations.qrc
 
