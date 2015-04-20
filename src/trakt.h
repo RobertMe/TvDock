@@ -4,7 +4,6 @@
 #include <QObject>
 
 #include "libtraqt/traktauthenticator.h"
-#include "libtraqt/traktmovies.h"
 
 class Trakt : public QObject
 {

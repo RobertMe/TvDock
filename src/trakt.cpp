@@ -3,17 +3,22 @@
 #include <QtQuick>
 #include "libtraqt/traktconnection.h"
 #include "libtraqt/traktpeoplemodel.h"
+#include "libtraqt/traktmovies.h"
+#include "libtraqt/traktshows.h"
 
 Trakt::Trakt(QObject *parent) :
     QObject(parent)
 {
     qmlRegisterUncreatableType<TraktAuthenticator>("harbour.tvdock", 1, 0, "TraktAuthenticator", "Get authenticator from trakt.authenticator");
-    qmlRegisterType<TraktMovies>("harbour.tvdock", 1, 0, "TraktMovies");
-    qmlRegisterUncreatableType<TraktMoviesModel>("harbour.tvdock", 1, 0, "TraktMoviesModel", "Get movies using TraktMovies");
+    qmlRegisterType<TraktImages>("harbour.tvdock", 1, 0, "TraktImages");
     qmlRegisterUncreatableType<TraktPeopleModel>("harbour.tvdock", 1, 0, "TraktPeopleModel", "Get people using movie/show/...");
     qmlRegisterUncreatableType<TraktPeopleFilterModel>("harbour.tvdock", 1, 0, "TraktPeopleModel", "Use People.{cast/crew} instead");
+    qmlRegisterType<TraktMovies>("harbour.tvdock", 1, 0, "TraktMovies");
+    qmlRegisterUncreatableType<TraktMoviesModel>("harbour.tvdock", 1, 0, "TraktMoviesModel", "Get movies using TraktMovies");
     qmlRegisterType<TraktMovie>("harbour.tvdock", 1, 0, "TraktMovie");
-    qmlRegisterType<TraktImages>("harbour.tvdock", 1, 0, "TraktImages");
+    qmlRegisterType<TraktShows>("harbour.tvdock", 1, 0, "TraktShows");
+    qmlRegisterUncreatableType<TraktShowsModel>("harbour.tvdock", 1, 0, "TraktShowModel", "Get shows using TraktShows");
+    qmlRegisterType<TraktShow>("harbour.tvdock", 1, 0, "TraktShow");
 }
 
 TraktAuthenticator* Trakt::authenticator() const

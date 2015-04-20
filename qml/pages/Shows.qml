@@ -14,9 +14,9 @@ Page {
         property int columnCount: Math.round(parent.width / 150)
 
         header: PageHeader {
-            //: Header of movies listing, containing the mode name
-            //% "Movies: %1"
-            title: qsTrId("movies-header").arg(qsTrId("list-" + page.mode));
+            //: Header of TV shows listing, containing the mode name
+            //% "TV Shows: %1"
+            title: qsTrId("shows-header").arg(qsTrId("list-" + page.mode));
         }
 
         anchors.fill: parent
@@ -27,7 +27,7 @@ Page {
             width: grid.cellWidth
             contentHeight: grid.cellHeight
 
-            onClicked: pageStack.push("MovieDetails.qml", {movie: grid.model.at(index)})
+            onClicked: pageStack.push("ShowDetails.qml", {show: grid.model.at(index)})
 
             Image {
                 width: grid.cellWidth

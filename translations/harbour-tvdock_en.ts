@@ -10,18 +10,25 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="menu-movies">
-        <location filename="../qml/pages/MainMenu.qml" line="52"/>
+        <location filename="../qml/pages/MainMenu.qml" line="55"/>
         <source>Movies</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="list-trending">
-        <location filename="../qml/pages/MainMenu.qml" line="57"/>
+        <location filename="../qml/pages/MainMenu.qml" line="61"/>
+        <location filename="../qml/pages/MainMenu.qml" line="138"/>
         <source>Trending</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="list-popular">
-        <location filename="../qml/pages/MainMenu.qml" line="76"/>
+        <location filename="../qml/pages/MainMenu.qml" line="81"/>
+        <location filename="../qml/pages/MainMenu.qml" line="158"/>
         <source>Popular</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="menu-shows">
+        <location filename="../qml/pages/MainMenu.qml" line="132"/>
+        <source>TV Shows</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="menu-show-all">
@@ -50,15 +57,21 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="item-cast">
-        <location filename="../qml/components/PeopleOverview.qml" line="13"/>
+        <location filename="../qml/components/PeopleOverview.qml" line="15"/>
         <source>Cast</source>
         <extracomment>&quot;Cast&quot; heading of item details</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="item-crew">
-        <location filename="../qml/components/PeopleOverview.qml" line="44"/>
+        <location filename="../qml/components/PeopleOverview.qml" line="47"/>
         <source>Crew</source>
         <extracomment>&quot;Crew&quot; heading of item details</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="shows-header">
+        <location filename="../qml/pages/Shows.qml" line="19"/>
+        <source>TV Shows: %1</source>
+        <extracomment>Header of TV shows listing, containing the mode name</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
