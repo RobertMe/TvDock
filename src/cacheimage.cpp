@@ -37,7 +37,10 @@ void CacheImage::updateSource()
     m_cache->fetch(m_source, this, "imageFetched");
 }
 
-void CacheImage::imageFetched(const QUrl &url)
+void CacheImage::imageFetched(const QUrl source, const QUrl sourceFile)
 {
-    parentItem()->setProperty("source", url);
+    //we might still receive the cache file for a previous source
+    if (m_source == source) {
+        parentItem()->setProperty("source", sourceFile);
+    }
 }

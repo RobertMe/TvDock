@@ -30,7 +30,7 @@ ImageCache::ImageCache(QObject *parent) :
 void ImageCache::fetch(const QUrl &source, QObject *receiver, const char *method)
 {
     if (m_availableImages.contains(source)) {
-        QMetaObject::invokeMethod(receiver, method, Q_ARG(const QUrl&, m_availableImages[source]));
+        QMetaObject::invokeMethod(receiver, method, Q_ARG(const QUrl&, source), Q_ARG(const QUrl&, m_availableImages[source]));
         return;
     }
 
@@ -39,7 +39,7 @@ void ImageCache::fetch(const QUrl &source, QObject *receiver, const char *method
     cacheFile.setPath(m_cacheDir + source.host() + "/" + source.path());
     if (QFile(cacheFile.path()).exists()) {
         m_availableImages[source] = cacheFile;
-        QMetaObject::invokeMethod(receiver, method, Q_ARG(const QUrl&, cacheFile));
+        QMetaObject::invokeMethod(receiver, method, Q_ARG(const QUrl, source), Q_ARG(const QUrl, cacheFile));
         return;
     }
 
@@ -70,7 +70,7 @@ void ImageCache::imageDownloaded()
 
     for (int i = 0; i < job->callbacks.size(); ++i) {
         QPair<QPointer<QObject>, QString> callback = job->callbacks.at(i);
-        QMetaObject::invokeMethod(callback.first, callback.second.toLocal8Bit(), Q_ARG(const QUrl&, job->cacheFile));
+        QMetaObject::invokeMethod(callback.first, callback.second.toLocal8Bit(), Q_ARG(const QUrl, job->source), Q_ARG(const QUrl, job->cacheFile));
     }
 }
 

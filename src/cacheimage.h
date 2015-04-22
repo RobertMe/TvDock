@@ -28,7 +28,7 @@ private:
     void updateSource();
 
 private slots:
-    void imageFetched(const QUrl &url);
+    void imageFetched(const QUrl source, const QUrl cacheFile);
 };
 
 #endif // CACHEIMAGE_H
