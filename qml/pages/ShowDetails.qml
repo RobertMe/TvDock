@@ -122,6 +122,43 @@ Page {
                 }
             }
         }
+
+        Column {
+            height: view.cellHeight
+            width: view.cellWidth
+
+            SectionHeader {
+                //: "Seasons" heading for show details
+                //% "Seasons"
+                text: qsTrId("show-seasons")
+                height: implicitHeight
+            }
+
+            SilicaListView {
+                id: seasonsView
+                width: parent.width
+                height: 300
+                model: trakt.getSeasons(show)
+
+                orientation: Qt.Horizontal
+                layoutDirection: Qt.LeftToRight
+                clip: true
+
+                delegate: ListItem {
+                    contentHeight: 300
+                    width: 200
+
+                    Image {
+                        height: 300
+                        width: 200
+                        CacheImage {
+                            source: images.poster.thumb
+                        }
+                    }
+                }
+            }
+        }
+
         PeopleOverview {
             height: view.cellHeight
             width: view.cellWidth

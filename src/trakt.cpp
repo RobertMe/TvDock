@@ -5,6 +5,7 @@
 #include "libtraqt/traktpeoplemodel.h"
 #include "libtraqt/traktmovies.h"
 #include "libtraqt/traktshows.h"
+#include "libtraqt/traktseasonsmodel.h"
 
 Trakt::Trakt(QObject *parent) :
     QObject(parent)
@@ -19,6 +20,8 @@ Trakt::Trakt(QObject *parent) :
     qmlRegisterType<TraktShows>("harbour.tvdock", 1, 0, "TraktShows");
     qmlRegisterUncreatableType<TraktShowsModel>("harbour.tvdock", 1, 0, "TraktShowModel", "Get shows using TraktShows");
     qmlRegisterType<TraktShow>("harbour.tvdock", 1, 0, "TraktShow");
+    qmlRegisterUncreatableType<TraktSeasonsModel>("harbour.tvdock", 1, 0, "TraktSeasons", "Get seasons using trakt.seasons(show)");
+    qmlRegisterType<TraktSeason>("harbour.tvdock", 1, 0, "TraktSeason");
 }
 
 TraktAuthenticator* Trakt::authenticator() const
@@ -31,4 +34,9 @@ void Trakt::setAuthenticator(TraktAuthenticator *authenticator)
     m_authenticator = authenticator;
     TraktConnection::instance()->setAuthenticator(authenticator);
     emit authenticatorChanged();
+}
+
+TraktSeasonsModel *Trakt::getSeasons(TraktShow *show)
+{
+    return new TraktSeasonsModel(show);
 }

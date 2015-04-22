@@ -39,6 +39,7 @@
     </message>
     <message id="item-rating">
         <location filename="../qml/pages/MovieDetails.qml" line="102"/>
+        <location filename="../qml/pages/ShowDetails.qml" line="92"/>
         <source>%1% (%2 votes)</source>
         <oldsource>%1%% (%2 votes)</oldsource>
         <extracomment>Rating of an item, for example &quot;80% (100 votes)&quot;</extracomment>
@@ -46,14 +47,18 @@
     </message>
     <message id="item-homepage">
         <location filename="../qml/pages/MovieDetails.qml" line="109"/>
+        <location filename="../qml/pages/ShowDetails.qml" line="99"/>
         <source>Homepage</source>
         <extracomment>Homepage of a movie/show/...</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="item-trailer">
         <location filename="../qml/pages/MovieDetails.qml" line="119"/>
+        <location filename="../qml/pages/ShowDetails.qml" line="109"/>
         <source>Trailer</source>
-        <extracomment>Trailer of movie/show/...</extracomment>
+        <extracomment>Trailer of movie/show/...
+----------
+Trailer of show/show/...</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="item-cast">
@@ -72,6 +77,12 @@
         <location filename="../qml/pages/Shows.qml" line="19"/>
         <source>TV Shows: %1</source>
         <extracomment>Header of TV shows listing, containing the mode name</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="show-seasons">
+        <location filename="../qml/pages/ShowDetails.qml" line="134"/>
+        <source>Seasons</source>
+        <extracomment>&quot;Seasons&quot; heading for show details</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

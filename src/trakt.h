@@ -5,6 +5,9 @@
 
 #include "libtraqt/traktauthenticator.h"
 
+class TraktShow;
+class TraktSeasonsModel;
+
 class Trakt : public QObject
 {
     Q_OBJECT
@@ -14,6 +17,8 @@ public:
 
     TraktAuthenticator* authenticator() const;
     void setAuthenticator(TraktAuthenticator *authenticator);
+
+    Q_INVOKABLE TraktSeasonsModel *getSeasons(TraktShow *show);
 
 signals:
     void authenticatorChanged();
