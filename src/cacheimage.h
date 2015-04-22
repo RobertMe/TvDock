@@ -23,7 +23,7 @@ private:
     static QNetworkAccessManager s_nam;
 
     QUrl m_source;
-    ImageCache m_cache;
+    ImageCache *m_cache;
 
     void updateSource();
 

@@ -1,7 +1,7 @@
 #ifndef IMAGECACHE_H
 #define IMAGECACHE_H
 
-#include <QObject>
+#include <QThread>
 #include <QHash>
 #include <QNetworkAccessManager>
 #include <QPointer>
@@ -9,7 +9,7 @@
 
 class ImageFetchJob;
 
-class ImageCache : public QObject
+class ImageCache : public QThread
 {
     Q_OBJECT
 public:
@@ -17,7 +17,8 @@ public:
     explicit ImageCache(QObject *parent = 0);
     static ImageCache *instance();
 
-    void fetch(QUrl source, QObject *receiver, const char *method);
+    void fetch(const QUrl &source, QObject *receiver, const char *method);
+
 private:
 
     static ImageCache *s_instance;
@@ -29,6 +30,7 @@ private:
 
 private slots:
     void imageDownloaded();
+    void internalFetch(const QUrl source, const QUrl cacheFile, QObject *receiver, const QString method);
 };
 
 class ImageFetchJob : public QObject {
@@ -37,7 +39,7 @@ public:
     explicit ImageFetchJob(const QUrl &source, const QUrl &cacheFile, QObject *parent) : QObject(parent), cacheFile(cacheFile), source(source) { }
 
     QUrl cacheFile;
-    QList<QPair<QPointer<QObject>, const char *> > callbacks;
+    QList<QPair<QPointer<QObject>, QString> > callbacks;
     QUrl source;
 };
 

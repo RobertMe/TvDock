@@ -34,7 +34,7 @@ void CacheImage::setSource(const QUrl &url)
 
 void CacheImage::updateSource()
 {
-    ImageCache::instance()->fetch(m_source, this, "imageFetched");
+    m_cache->fetch(m_source, this, "imageFetched");
 }
 
 void CacheImage::imageFetched(const QUrl &url)
