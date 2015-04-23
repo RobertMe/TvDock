@@ -11,7 +11,7 @@ Page {
         url: trakt.authenticator.buildAuthorizeUrl();
 
         onUrlChanged: {
-            var regexp = /https?:\/\/trakt.tv\/oauth\/authorize\/([a-z0-9]{64})/;
+            var regexp = /https?:\/\/(?:staging\.)?trakt.tv\/oauth\/authorize\/([a-z0-9]{8,})/;
 
             var match = url.toString().match(regexp);
             if (match) {
