@@ -13,7 +13,7 @@ Page {
         anchors.bottomMargin: Theme.paddingLarge
         contentHeight: videosContainer.height
 
-        Flipable {
+        Turnable {
             id: videosContainer
             width: parent.width
             height: page.isPortrait ? moviesColumn.height + showsColumn.height : Math.max(moviesColumn.height, showsColumn.height)

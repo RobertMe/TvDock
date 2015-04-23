@@ -40,172 +40,116 @@ Page {
         }
     }
 
-    VisualItemModel {
-        id: itemModel
-
-        Column {
-            id: content
-            height: view.cellHeight
-            width: view.cellWidth
-            spacing: Theme.paddingMedium
-
-            Flipable {
-                id: overviewFlipable
-                page: page
-                width: parent.width
-                height: parent.height - y - Theme.paddingLarge
-
-                Row {
-                    id: row
-                    width: overviewFlipable.itemWidth
-                    height: overviewFlipable.itemHeight
-
-                    spacing: Theme.paddingMedium
-
-                    Image {
-                        id: poster
-                        width: Theme.itemSizeLarge * 2
-                        height: width * 1.5
-
-                        CacheImage {
-                            source: show.images.poster.thumb
-                        }
-                    }
-
-                    Column {
-                        width: row.width - poster.width - row.spacing
-
-                        Label {
-                            width: parent.width
-                            text: Qt.formatDate(show.firstAired)
-                        }
-
-                        Label {
-                            width: parent.width
-                            text: Qt.formatTime(show.runtime, "h:mm")
-                        }
-
-                        Label {
-                            width: parent.width
-                            //: Rating of an item, for example "80% (100 votes)"
-                            //% "%1% (%2 votes)"
-                            text: qsTrId("item-rating").arg(Math.round(show.rating * 10)).arg(show.votes)
-                        }
-
-                        Button {
-                            width: parent.width
-                            //: Homepage of a movie/show/...
-                            //% "Homepage"
-                            text: qsTrId("item-homepage")
-                            visible: !!show.homepage
-
-                            onClicked: Qt.openUrlExternally(show.homepage)
-                        }
-
-                        Button {
-                            width: parent.width
-                            //: Trailer of show/show/...
-                            //% "Trailer"
-                            text: qsTrId("item-trailer")
-                            visible: !!show.trailer
-
-                            onClicked: Qt.openUrlExternally(show.trailer)
-                        }
-                    }
-                }
-
-                FlickableLabel {
-                    width: overviewFlipable.itemWidth
-                    height: overviewFlipable.itemHeight
-                    text: show.overview
-                    font.pixelSize: Theme.fontSizeSmall
-                }
-            }
-        }
-
-        Column {
-            height: view.cellHeight
-            width: view.cellWidth
-
-            SectionHeader {
-                //: "Seasons" heading for show details
-                //% "Seasons"
-                text: qsTrId("show-seasons")
-                height: implicitHeight
-            }
-
-            SilicaListView {
-                id: seasonsView
-                width: parent.width
-                height: 300
-                model: trakt.getSeasons(show)
-
-                orientation: Qt.Horizontal
-                layoutDirection: Qt.LeftToRight
-                clip: true
-
-                delegate: ListItem {
-                    contentHeight: 300
-                    width: 200
-
-                    Image {
-                        height: 300
-                        width: 200
-                        CacheImage {
-                            source: images.poster.thumb
-                        }
-                    }
-                }
-            }
-        }
-
-        PeopleOverview {
-            height: view.cellHeight
-            width: view.cellWidth
-            people: show.people
-        }
-
-        Column {
-            height: view.cellHeight
-            width: view.cellWidth
-            Label {
-                text: "Comments"
-            }
-        }
-        Column {
-            height: view.cellHeight
-            width: view.cellWidth
-            Label {
-                text: "Related"
-            }
-        }
-        Column {
-            height: view.cellHeight
-            width: view.cellWidth
-            Label {
-                text: "Watching"
-            }
-        }
-    }
-
-    SilicaGridView {
+    DetailsFlickable {
         id: view
         anchors {
             left: parent.left
             right: parent.right
             top: header.bottom
             bottom: parent.bottom
-            leftMargin: Theme.paddingLarge
-            rightMargin: Theme.paddingLarge
             topMargin: -Theme.paddingLarge
         }
 
-        model: itemModel
-        cellWidth: width //page.isPortrait ? width : width / 2
-        cellHeight: height
-        clip: true
-        quickScrollEnabled: false
+        DetailsFlickablePage {
+            view: view
 
-        snapMode: ListView.SnapOneItem
+            ItemDetails {
+                anchors {
+                    fill: parent
+                    leftMargin: Theme.paddingLarge
+                    rightMargin: Theme.paddingLarge
+                }
+                page: page
+                image: show.images.poster.thumb
+                overview: show.overview
+                details: [
+                    Label {
+                        width: parent.width
+                        text: Qt.formatDate(show.firstAired)
+                    },
+
+                    Label {
+                        width: parent.width
+                        text: Qt.formatTime(show.runtime, "h:mm")
+                    },
+
+                    Label {
+                        width: parent.width
+                        //: Rating of an item, for example "80% (100 votes)"
+                        //% "%1% (%2 votes)"
+                        text: qsTrId("item-rating").arg(Math.round(show.rating * 10)).arg(show.votes)
+                    },
+
+                    Button {
+                        width: parent.width
+                        //: Homepage of a movie/show/...
+                        //% "Homepage"
+                        text: qsTrId("item-homepage")
+                        visible: !!show.homepage
+
+                        onClicked: Qt.openUrlExternally(show.homepage)
+                    },
+
+                    Button {
+                        width: parent.width
+                        //: Trailer of show/show/...
+                        //% "Trailer"
+                        text: qsTrId("item-trailer")
+                        visible: !!show.trailer
+
+                        onClicked: Qt.openUrlExternally(show.trailer)
+                    }
+                ]
+            }
+        }
+
+        DetailsFlickablePage {
+            view: view
+
+            Column {
+                height: view.cellHeight
+                width: view.cellWidth
+
+                SectionHeader {
+                    //: "Seasons" heading for show details
+                    //% "Seasons"
+                    text: qsTrId("show-seasons")
+                    height: implicitHeight
+                }
+
+                SilicaListView {
+                    id: seasonsView
+                    width: parent.width
+                    height: 300
+                    model: trakt.getSeasons(show)
+
+                    orientation: Qt.Horizontal
+                    layoutDirection: Qt.LeftToRight
+                    clip: true
+
+                    delegate: ListItem {
+                        contentHeight: 300
+                        width: 200
+
+                        Image {
+                            height: 300
+                            width: 200
+                            CacheImage {
+                                source: images.poster.thumb
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        DetailsFlickablePage {
+            view: view
+
+            PeopleOverview {
+                anchors.fill: parent
+                people: show.people
+            }
+        }
     }
 }
