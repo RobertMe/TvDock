@@ -1,5 +1,9 @@
 TARGET = harbour-tvdock
 
+DEFINES += BUILD_DATE=\\\"2015-04-23\\\"
+DEFINES += BUILD_VERSION=\\\"0.8\\\"
+
+
 QT += quick qml
 
 SOURCES += main.cpp \

@@ -121,7 +121,7 @@ Page {
                     id: seasonsView
                     width: parent.width
                     height: 300
-                    model: trakt.getSeasons(show)
+                    model: trakt.shows.getSeasons(show)
 
                     orientation: Qt.Horizontal
                     layoutDirection: Qt.LeftToRight

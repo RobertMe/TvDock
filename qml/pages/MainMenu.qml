@@ -24,10 +24,6 @@ Page {
                 width: videosContainer.itemWidth
                 height: childrenRect.height
 
-                TraktMovies {
-                    id: movies
-                }
-
                 Component {
                     id: movieComponent
                     ListItem {
@@ -70,7 +66,7 @@ Page {
                     id: trendingMovies
                     width: parent.width
                     height: 225
-                    sourceModel: movies.trending()
+                    sourceModel: trakt.movies.trending()
                     delegate: movieComponent
                     onShowAll: pageStack.push("Movies.qml", {model: sourceModel, mode: "trending"})
                 }
@@ -90,7 +86,7 @@ Page {
                     id: popularMovies
                     width: parent.width
                     height: 225
-                    sourceModel: movies.popular()
+                    sourceModel: trakt.movies.popular()
                     delegate: movieComponent
                     onShowAll: pageStack.push("Movies.qml", {model: sourceModel, mode: "popular"})
                 }
@@ -100,10 +96,6 @@ Page {
                 id: showsColumn
                 width: videosContainer.itemWidth
                 height: childrenRect.height
-
-                TraktShows {
-                    id: shows
-                }
 
                 Component {
                     id: showComponent
@@ -147,7 +139,7 @@ Page {
                     id: trendingShows
                     width: parent.width
                     height: 225
-                    sourceModel: shows.trending()
+                    sourceModel: trakt.shows.trending()
                     delegate: showComponent
                     onShowAll: pageStack.push("Shows.qml", {model: sourceModel, mode: "trending"})
                 }
@@ -167,7 +159,7 @@ Page {
                     id: popularShows
                     width: parent.width
                     height: 225
-                    sourceModel: shows.popular()
+                    sourceModel: trakt.shows.popular()
                     delegate: showComponent
                     onShowAll: pageStack.push("Shows.qml", {model: sourceModel, mode: "popular"})
                 }
