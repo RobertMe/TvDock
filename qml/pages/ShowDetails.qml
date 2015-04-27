@@ -148,7 +148,7 @@ Page {
 
             PeopleOverview {
                 anchors.fill: parent
-                people: show.people
+                people: trakt.people.people(show.ids)
             }
         }
     }

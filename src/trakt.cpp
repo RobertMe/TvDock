@@ -6,16 +6,19 @@
 #include "libtraqt/traktmovies.h"
 #include "libtraqt/traktshows.h"
 #include "libtraqt/traktseasonsmodel.h"
+#include "libtraqt/traktpeople.h"
 #include "libtraqt/traktcheckin.h"
 
 Trakt::Trakt(QObject *parent) :
     QObject(parent),
     m_movies(new TraktMovies(this)),
-    m_shows(new TraktShows(this))
+    m_shows(new TraktShows(this)),
+    m_people(new TraktPeople(this))
 {
     qmlRegisterUncreatableType<TraktIds>("harbour.tvdock", 1, 0, "TraktIds", "Not creatable, but fetchable from item using ids property");
     qmlRegisterUncreatableType<TraktAuthenticator>("harbour.tvdock", 1, 0, "TraktAuthenticator", "Get authenticator from trakt.authenticator");
     qmlRegisterType<TraktImages>("harbour.tvdock", 1, 0, "TraktImages");
+    qmlRegisterUncreatableType<TraktPeople>("harbour.tvdock", 1, 0, "TraktPeople", "Get people using trakt.people");
     qmlRegisterUncreatableType<TraktPeopleModel>("harbour.tvdock", 1, 0, "TraktPeopleModel", "Get people using movie/show/...");
     qmlRegisterUncreatableType<TraktPeopleFilterModel>("harbour.tvdock", 1, 0, "TraktPeopleModel", "Use People.{cast/crew} instead");
     qmlRegisterUncreatableType<TraktMovies>("harbour.tvdock", 1, 0, "TraktMovies", "Get movies using trakt.movies");
@@ -49,6 +52,11 @@ TraktMovies *Trakt::movies()
 TraktShows *Trakt::shows()
 {
     return m_shows;
+}
+
+TraktPeople *Trakt::people()
+{
+    return m_people;
 }
 
 TraktCheckin *Trakt::createCheckin(TraktIds *ids)

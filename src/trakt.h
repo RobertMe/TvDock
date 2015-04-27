@@ -10,6 +10,7 @@ class TraktMovies;
 class TraktShow;
 class TraktSeasonsModel;
 class TraktShows;
+class TraktPeople;
 class TraktCheckin;
 
 class Trakt : public QObject
@@ -18,6 +19,7 @@ class Trakt : public QObject
     Q_PROPERTY(TraktAuthenticator *authenticator READ authenticator WRITE setAuthenticator NOTIFY authenticatorChanged)
     Q_PROPERTY(TraktMovies *movies READ movies CONSTANT)
     Q_PROPERTY(TraktShows *shows READ shows CONSTANT)
+    Q_PROPERTY(TraktPeople *people READ people CONSTANT)
 public:
     explicit Trakt(QObject *parent = 0);
 
@@ -26,6 +28,7 @@ public:
 
     TraktMovies *movies();
     TraktShows *shows();
+    TraktPeople *people();
 
     Q_INVOKABLE TraktCheckin *createCheckin(TraktIds *ids);
 
@@ -36,6 +39,7 @@ private:
     TraktAuthenticator *m_authenticator;
     TraktMovies *m_movies;
     TraktShows *m_shows;
+    TraktPeople *m_people;
 };
 
 #endif // TRAKT_H
