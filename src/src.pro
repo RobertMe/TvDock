@@ -50,5 +50,6 @@ RESOURCES += ../translations/translations.qrc
 
 OTHER_FILES += \
     ../qml/components/DetailsFlickablePage.qml \
-    ../qml/components/Turnable.qml
+    ../qml/components/Turnable.qml \
+    ../qml/pages/SeasonDetails.qml
 

@@ -26,7 +26,8 @@ OTHER_FILES += \
     qml/pages/Shows.qml \
     qml/components/DetailsFlickable.qml \
     qml/components/DetailsFlickablePage.qml \
-    qml/components/ItemDetails.qml
+    qml/components/ItemDetails.qml \
+    qml/pages/SeasonDetails.qml
 
 TRANSLATIONS += \
     translations/harbour-tvdock_en.ts

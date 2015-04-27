@@ -39,6 +39,7 @@
     </message>
     <message id="item-rating">
         <location filename="../qml/pages/MovieDetails.qml" line="112"/>
+        <location filename="../qml/pages/SeasonDetails.qml" line="70"/>
         <location filename="../qml/pages/ShowDetails.qml" line="80"/>
         <source>%1% (%2 votes)</source>
         <oldsource>%1%% (%2 votes)</oldsource>
@@ -105,6 +106,12 @@ Trailer of show/show/...</extracomment>
         <location filename="../qml/pages/CheckInDialog.qml" line="63"/>
         <source>Share on %1</source>
         <extracomment>Label for &quot;Share on Facebook/Twitter/Tumblr&quot; checkbox during check in</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="season-title">
+        <location filename="../qml/pages/SeasonDetails.qml" line="30"/>
+        <source>Season %1</source>
+        <extracomment>Title of the season details page</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

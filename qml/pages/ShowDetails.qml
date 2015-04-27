@@ -138,6 +138,8 @@ Page {
                                 source: images.poster.thumb
                             }
                         }
+
+                        onClicked: pageStack.push("SeasonDetails.qml", {season: seasonsView.model.at(index)})
                     }
                 }
             }
