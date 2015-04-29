@@ -2,12 +2,12 @@
 
 #include <QtQuick>
 #include "libtraqt/traktconnection.h"
-#include "libtraqt/traktpeoplemodel.h"
 #include "libtraqt/traktmovies.h"
 #include "libtraqt/traktshows.h"
 #include "libtraqt/traktseasonsmodel.h"
 #include "libtraqt/traktpeople.h"
 #include "libtraqt/traktcheckin.h"
+#include "libtraqt/traktepisodesmodel.h"
 
 Trakt::Trakt(QObject *parent) :
     QObject(parent),
@@ -29,6 +29,8 @@ Trakt::Trakt(QObject *parent) :
     qmlRegisterType<TraktShow>("harbour.tvdock", 1, 0, "TraktShow");
     qmlRegisterUncreatableType<TraktSeasonsModel>("harbour.tvdock", 1, 0, "TraktSeasons", "Get seasons using trakt.shows.getSeasons(show)");
     qmlRegisterType<TraktSeason>("harbour.tvdock", 1, 0, "TraktSeason");
+    qmlRegisterUncreatableType<TraktEpisodesModel>("harbour.tvdock", 1, 0, "TraktEpisodesModel", "Get episodes using trakt.shows.getEpisodes(season)");
+    qmlRegisterType<TraktEpisode>("harbour.tvdock", 1, 0, "TraktEpisode");
     qmlRegisterUncreatableType<TraktCheckin>("harbour.tvdock", 1, 0, "TraktCheckin", "Create checkin using trakt.checkin");
 }
 

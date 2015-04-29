@@ -72,5 +72,51 @@ Page {
                 ]
             }
         }
+
+        DetailsFlickablePage {
+            view: view
+
+            SilicaGridView {
+                id: episodesView
+
+                anchors.fill: parent
+
+                layoutDirection: Qt.LeftToRight
+                flow: Grid.TopToBottom
+
+                cellWidth: page.isPortrait ? 350 : (cellHeight - Theme.itemSizeExtraSmall) / 9 * 16
+                cellHeight: page.isPortrait ? cellWidth/16*9 + Theme.itemSizeExtraSmall : height / 2
+
+                model: trakt.shows.getEpisodes(page.season)
+
+                delegate: ListItem {
+                    width: episodesView.cellWidth
+                    contentHeight: episodesView.cellHeight
+
+                    Column {
+                        width: parent.width
+
+                        Image {
+                            width: parent.width
+                            height: width/16*9
+                            fillMode: Image.PreserveAspectFit
+
+                            CacheImage {
+                                source: images.screenshot.thumb
+                            }
+                        }
+
+                        Label {
+                            width: parent.width
+                            height: Theme.itemSizeExtraSmall
+                            text: season.number + "x" + number + ": " + title
+                            truncationMode: TruncationMode.Fade
+                            verticalAlignment: Text.AlignVCenter
+                            color: Theme.highlightColor
+                        }
+                    }
+                }
+            }
+        }
     }
 }
