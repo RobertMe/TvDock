@@ -93,6 +93,8 @@ Page {
                     width: episodesView.cellWidth
                     contentHeight: episodesView.cellHeight
 
+                    onClicked: pageStack.push("EpisodeDetails.qml", {episode: episodesView.model.at(index)})
+
                     Column {
                         width: parent.width
 

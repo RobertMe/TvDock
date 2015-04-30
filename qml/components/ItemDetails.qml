@@ -27,6 +27,7 @@ Item {
                 id: poster
                 width: Theme.itemSizeLarge * 2
                 height: width * 1.5
+                fillMode: Image.PreserveAspectFit
 
                 CacheImage {
                     id: cachePoster
