@@ -4,7 +4,6 @@ import harbour.tvdock 1.0
 
 Page {
     id: page
-    allowedOrientations: Orientation.All
     property string mode
     property alias model: grid.model
 

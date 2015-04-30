@@ -7,8 +7,6 @@ Column {
     property QtObject people
     property int itemHeight: 195
 
-    height: view.cellHeight
-    width: view.cellWidth
     SectionHeader {
         //: "Cast" heading of item details
         //% "Cast"

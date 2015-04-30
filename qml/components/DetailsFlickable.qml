@@ -5,6 +5,8 @@ SilicaGridView {
     id: root
     default property alias contents: pages.children
 
+    property int __tvdock_details_flickable
+
     model: VisualItemModel {
         id: pages
     }

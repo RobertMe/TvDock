@@ -6,14 +6,12 @@ Item {
     id: root
 
     property alias details: detailsColumn.children
-    property Page page
     property alias image: cachePoster.source
     property alias overview: overviewLabel.text
 
     Turnable {
         id: overviewTurnable
 
-        page: root.page
         anchors.fill: parent
 
         Row {

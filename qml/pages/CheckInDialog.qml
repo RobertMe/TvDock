@@ -17,7 +17,6 @@ Dialog {
 
     Turnable {
         id: turnable
-        page: page
         anchors {
             left: parent.left
             right: parent.right
