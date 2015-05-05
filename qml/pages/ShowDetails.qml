@@ -6,6 +6,7 @@ import "../components"
 DetailsPage {
     id: page
     property TraktShow show
+    property QtObject seasons: trakt.shows.getSeasons(show)
 
     onShowChanged: {
         if (show) {
@@ -82,7 +83,7 @@ DetailsPage {
                 id: seasonsView
                 width: parent.width
                 height: 300
-                model: trakt.shows.getSeasons(show)
+                model: page.seasons
 
                 orientation: Qt.Horizontal
                 layoutDirection: Qt.LeftToRight

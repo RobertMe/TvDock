@@ -5,7 +5,7 @@ import harbour.tvdock 1.0
 SilicaListView {
     id: root
     signal showAll()
-    property alias sourceModel: limitedModel.sourceModel
+    property variant sourceModel
 
     orientation: Qt.Horizontal
     layoutDirection: Qt.LeftToRight
@@ -14,6 +14,7 @@ SilicaListView {
     model: LimitedModel {
         id: limitedModel
         maxItems: 5
+        sourceModel: root.sourceModel
     }
 
     MenuItem {

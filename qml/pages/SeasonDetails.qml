@@ -6,6 +6,7 @@ import "../components"
 DetailsPage {
     id: page
     property TraktSeason season
+    property QtObject episodes: trakt.shows.getEpisodes(season)
 
     sourcePortrait: season.images.poster.medium || season.show.images.poster.medium
     sourceLandscape: season.show.images.fanart.medium
@@ -50,7 +51,7 @@ DetailsPage {
             cellWidth: page.isPortrait ? 350 : (cellHeight - Theme.itemSizeExtraSmall) / 9 * 16
             cellHeight: page.isPortrait ? cellWidth/16*9 + Theme.itemSizeExtraSmall : height / 2
 
-            model: trakt.shows.getEpisodes(page.season)
+            model: page.episodes
 
             delegate: ListItem {
                 width: episodesView.cellWidth
