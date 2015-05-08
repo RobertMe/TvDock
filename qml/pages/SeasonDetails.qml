@@ -48,8 +48,8 @@ DetailsPage {
             layoutDirection: Qt.LeftToRight
             flow: Grid.TopToBottom
 
-            cellWidth: page.isPortrait ? 350 : (cellHeight - Theme.itemSizeExtraSmall) / 9 * 16
-            cellHeight: page.isPortrait ? cellWidth/16*9 + Theme.itemSizeExtraSmall : height / 2
+            cellWidth: (cellHeight - Theme.itemSizeExtraSmall) / 9 * 16
+            cellHeight: height / Math.round(height / (200 + Theme.itemSizeExtraSmall))
 
             model: page.episodes
 
