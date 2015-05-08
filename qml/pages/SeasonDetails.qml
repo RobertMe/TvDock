@@ -73,7 +73,8 @@ DetailsPage {
                     }
 
                     Label {
-                        width: parent.width
+                        width: parent.width - (Theme.paddingMedium * 2)
+                        x: Theme.paddingMedium
                         height: Theme.itemSizeExtraSmall
                         text: season.number + "x" + number + ": " + title
                         truncationMode: TruncationMode.Fade
