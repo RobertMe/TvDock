@@ -1,6 +1,8 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import harbour.tvdock 1.0
+import "../Utils.js" as Utils
+
 
 Item {
     id: root
@@ -8,16 +10,22 @@ Item {
     property alias details: detailsColumn.children
     property alias image: cachePoster.source
     property alias overview: overviewLabel.text
+    property Page _page: Utils.findPage(root)
+
+    anchors {
+        leftMargin: Theme.paddingLarge
+        rightMargin: Theme.paddingLarge
+        bottomMargin: Theme.paddingLarge
+    }
 
     Turnable {
         id: overviewTurnable
-
         anchors.fill: parent
 
         Row {
             id: row
             width: overviewTurnable.itemWidth
-            height: overviewTurnable.itemHeight
+            height: childrenRect.height
 
             spacing: Theme.paddingMedium
 
@@ -41,7 +49,7 @@ Item {
         FlickableLabel {
             id: overviewLabel
             width: overviewTurnable.itemWidth
-            height: overviewTurnable.itemHeight
+            height: overviewTurnable.columns === 1 ? overviewTurnable.height - row.height : overviewTurnable.height
             font.pixelSize: Theme.fontSizeSmall
         }
     }

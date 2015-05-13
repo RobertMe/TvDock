@@ -7,13 +7,12 @@ Dialog {
     id: page
     property QtObject checkin
 
+    onAccepted: checkin.checkIn()
+
     DialogHeader {
         id: header
         acceptText: qsTrId("checkin-start")
-        anchors.top: parent.top
     }
-
-    onAccepted: checkin.checkIn()
 
     Turnable {
         id: turnable
@@ -29,7 +28,8 @@ Dialog {
 
         TextArea {
             width: turnable.itemWidth
-            height: turnable.itemHeight
+            property int maxHeight: parent.columns === 1 ? parent.height - (Qt.inputMethod.visible ? 0 : shareSwitches.height) : parent.height
+            height: Math.min(maxHeight, Math.max(Theme.itemSizeExtraLarge * 1.5, implicitHeight))
             //: Label and placeholder for "Message" text area during checkin
             //% "Message"
             placeholderText: qsTrId("checkin-message")
@@ -37,6 +37,7 @@ Dialog {
         }
 
         Column {
+            id: shareSwitches
             width: turnable.itemWidth
             height: turnable.itemHeight
             TextSwitch {

@@ -56,7 +56,7 @@ Page {
                 left: parent.left
                 right: parent.right
             }
-            y: header.height - Theme.paddingLarge
+            y: header.height - (root.isPortrait ? Theme.paddingLarge : Theme.paddingMedium)
             height: flickable.height - y
         }
     }

@@ -16,7 +16,7 @@ Page {
         Turnable {
             id: videosContainer
             width: parent.width
-            height: page.isPortrait ? moviesColumn.height + showsColumn.height : Math.max(moviesColumn.height, showsColumn.height)
+            height: childrenRect.height
 
             Column {
                 id: moviesColumn

@@ -26,11 +26,13 @@ DetailsPage {
                 fill: parent
                 leftMargin: Theme.paddingLarge
                 rightMargin: Theme.paddingLarge
+                bottomMargin: Theme.paddingLarge
             }
 
             Column {
+                id: detailsColumn
                 width: overviewTurnable.itemWidth
-                height: overviewTurnable.itemHeight
+                height: childrenRect.height
 
                 spacing: Theme.paddingMedium
 
@@ -55,7 +57,7 @@ DetailsPage {
 
             FlickableLabel {
                 width: overviewTurnable.itemWidth
-                height: overviewTurnable.itemHeight
+                height: overviewTurnable.columns === 1 ? overviewTurnable.height - detailsColumn.height : overviewTurnable.height
                 font.pixelSize: Theme.fontSizeSmall
 
                 text: episode.overview

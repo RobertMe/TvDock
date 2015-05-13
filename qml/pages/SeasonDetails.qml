@@ -16,11 +16,7 @@ DetailsPage {
 
     DetailsFlickablePage {
         ItemDetails {
-            anchors {
-                fill: parent
-                leftMargin: Theme.paddingLarge
-                rightMargin: Theme.paddingLarge
-            }
+            anchors.fill: parent
             image: season.images.poster.thumb
             overview: season.overview
             details: [

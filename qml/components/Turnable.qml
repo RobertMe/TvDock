@@ -2,22 +2,15 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../Utils.js" as Utils
 
-SilicaGridView {
+Grid {
     id: root
     property Page _page: Utils.findPage(root)
 
-    default property alias contents: model.children
+    columns: _page.isPortrait ? 1 : 2
+    columnSpacing: Theme.paddingMedium
+    rowSpacing: Theme.paddingMedium
 
-    property alias itemWidth: root.cellWidth
-    property alias itemHeight: root.cellHeight
-
-    cellWidth: _page.isPortrait ? width : width / children.length
-    cellHeight: _page.isPortrait ? height / children.length : height
-    interactive: false
+    property int itemWidth: (width - (columnSpacing * columns - 1)) / columns
 
     clip: true
-
-    model: VisualItemModel {
-        id: model
-    }
 }

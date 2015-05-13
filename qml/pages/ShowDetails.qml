@@ -20,11 +20,7 @@ DetailsPage {
 
     DetailsFlickablePage {
         ItemDetails {
-            anchors {
-                fill: parent
-                leftMargin: Theme.paddingLarge
-                rightMargin: Theme.paddingLarge
-            }
+            anchors.fill: parent
             image: show.images.poster.thumb
             overview: show.overview
             details: [
