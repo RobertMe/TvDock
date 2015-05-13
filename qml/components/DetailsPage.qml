@@ -4,7 +4,7 @@ import harbour.tvdock 1.0
 
 Page {
     id: root
-    allowedOrientations: Orientation.All
+    allowedOrientations: defaultAllowedOrientations
 
     property url sourcePortrait
     property url sourceLandscape

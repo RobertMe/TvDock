@@ -6,6 +6,7 @@ Page {
     id: page
     property string mode
     property alias model: grid.model
+    allowedOrientations: defaultAllowedOrientations
 
     SilicaGridView {
         id: grid

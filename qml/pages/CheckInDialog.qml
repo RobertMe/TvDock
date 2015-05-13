@@ -6,6 +6,7 @@ import "../components"
 Dialog {
     id: page
     property QtObject checkin
+    allowedOrientations: defaultAllowedOrientations
 
     onAccepted: checkin.checkIn()
 
