@@ -49,7 +49,7 @@ Item {
         FlickableLabel {
             id: overviewLabel
             width: overviewTurnable.itemWidth
-            height: overviewTurnable.columns === 1 ? overviewTurnable.height - row.height : overviewTurnable.height
+            height: overviewTurnable.columns === 1 ? overviewTurnable.height - y : overviewTurnable.height
             font.pixelSize: Theme.fontSizeSmall
         }
     }
