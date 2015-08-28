@@ -10,7 +10,7 @@ Grid {
     columnSpacing: Theme.paddingMedium
     rowSpacing: Theme.paddingMedium
 
-    property int itemWidth: (width - (columnSpacing * columns - 1)) / columns
+    property int itemWidth: (width - (columnSpacing * (columns - 1))) / columns
 
     clip: true
 }
