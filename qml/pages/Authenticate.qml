@@ -19,4 +19,9 @@ Page {
             }
         }
     }
+
+    Connections {
+        target: trakt.authenticator
+        onAuthorizedChanged: pageStack.pop()
+    }
 }

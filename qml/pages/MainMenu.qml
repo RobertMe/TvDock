@@ -9,14 +9,26 @@ Page {
 
     SilicaFlickable {
         anchors.fill: parent
-        anchors.topMargin: Theme.paddingLarge
-        anchors.bottomMargin: Theme.paddingLarge
-        contentHeight: videosContainer.height
+        contentHeight: videosContainer.height + (Theme.paddingLarge * 2)
+
+        PullDownMenu {
+            enabled: !trakt.authenticator.authorized
+            visible: enabled
+
+            MenuItem {
+                //% "Log in"
+                text: qsTrId("login")
+                onClicked: {
+                    pageStack.push("Authenticate.qml");
+                }
+            }
+        }
 
         Turnable {
             id: videosContainer
             width: parent.width
             height: childrenRect.height
+            y: Theme.paddingLarge
 
             Column {
                 id: moviesColumn

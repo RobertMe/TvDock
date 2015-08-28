@@ -4,26 +4,8 @@ import "pages"
 
 ApplicationWindow
 {
-    initialPage: trakt.authenticator.authorized ? mainMenu : authenticatePage
-
-    Connections {
-        target: trakt.authenticator
-        onAuthorizedChanged: {
-            pageStack.clear();
-            pageStack.push(initialPage);
-        }
-    }
-
-    Component {
-        id: mainMenu
-        MainMenu {
-        }
-    }
-
-    Component {
-        id: authenticatePage
-        Authenticate {
-        }
+    initialPage: Component {
+        MainMenu {}
     }
 
     cover: Qt.resolvedUrl("cover/CoverPage.qml")

@@ -18,6 +18,9 @@ DetailsPage {
     title: movie.title
 
     pullDownMenu: PullDownMenu {
+        enabled: trakt.authenticator.authorized
+        visible: enabled
+
         MenuItem {
             //: Start checkin process for movie or episode
             //% "Check in"
