@@ -7,9 +7,51 @@ Page {
     id: page
     allowedOrientations: defaultAllowedOrientations
 
-    SilicaFlickable {
+    Component {
+        id: movieComponent
+        ListItem {
+            width: parent.parent.cellWidth
+            contentHeight: parent.parent.cellHeight
+
+            Image {
+                anchors.fill: parent
+                fillMode: Image.PreserveAspectFit
+
+                CacheImage {
+                    source: images.poster.thumb
+                }
+            }
+
+            onClicked: pageStack.push("MovieDetails.qml", {movie: parent.parent.sourceModel.at(index)});
+        }
+    }
+
+    Component {
+        id: showComponent
+        ListItem {
+            width: parent.parent.cellWidth
+            contentHeight: parent.parent.cellHeight
+
+            Image {
+                anchors.fill: parent
+                fillMode: Image.PreserveAspectFit
+
+                CacheImage {
+                    source: images.poster.thumb
+                }
+            }
+
+            onClicked: pageStack.push("ShowDetails.qml", {show: parent.parent.sourceModel.at(index)});
+        }
+    }
+
+    SilicaListView {
+        id: mainMenu
         anchors.fill: parent
-        contentHeight: videosContainer.height + (Theme.paddingLarge * 2)
+        clip: true
+        quickScrollEnabled: false
+
+        snapMode: ListView.SnapOneItem
 
         PullDownMenu {
             enabled: !trakt.authenticator.authorized
@@ -24,155 +66,141 @@ Page {
             }
         }
 
-        Turnable {
-            id: videosContainer
-            width: parent.width
-            height: childrenRect.height
-            y: Theme.paddingLarge
-
+        model: VisualItemModel {
             Column {
-                id: moviesColumn
-                width: videosContainer.itemWidth
-                height: childrenRect.height
+                width: mainMenu.width
+                height: mainMenu.height
 
-                Component {
-                    id: movieComponent
-                    ListItem {
-                        width: 150
-                        height: width * 1.5
-
-                        Image {
-                            width: 150
-                            height: width * 1.5
-                            fillMode: Image.PreserveAspectFit
-
-                            CacheImage {
-                                source: images.poster.thumb
-                            }
-                        }
-
-                        onClicked: pageStack.push("MovieDetails.qml", {movie: parent.parent.sourceModel.at(index)});
-                    }
-                }
+                Item { width: parent.width; height: Theme.paddingLarge }
 
                 MainMenuHeader {
+                    id: moviesHeader
                     maxWidth: parent.width
-                    height: Theme.itemSizeExtraSmall
                     //% "Movies"
                     title: qsTrId("menu-movies")
                 }
 
-                SectionHeader {
-                    height: implicitHeight + Theme.paddingSmall * 2
-                    //% "Trending"
-                    text: qsTrId("list-trending")
-
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: pageStack.push("Movies.qml", {model: trendingMovies.sourceModel, mode: "trending"})
-                    }
-                }
-
-                MainMenuList {
-                    id: trendingMovies
+                Turnable {
+                    id: moviesContainer
+                    height: parent.height - y - Theme.paddingLarge
                     width: parent.width
-                    height: 225
-                    sourceModel: trakt.movies.trending()
-                    delegate: movieComponent
-                    onShowAll: pageStack.push("Movies.qml", {model: sourceModel, mode: "trending"})
-                }
+                    columnSpacing: Theme.paddingLarge
 
-                SectionHeader {
-                    height: implicitHeight + Theme.paddingSmall * 2
-                    //% "Popular"
-                    text: qsTrId("list-popular")
+                    Column {
+                        width: moviesContainer.itemWidth
+                        height: moviesContainer.itemHeight
 
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: pageStack.push("Movies.qml", {model: popularMovies.sourceModel, mode: "popular"})
+                        SectionHeader {
+                            height: implicitHeight + Theme.paddingSmall * 2
+                            //% "Trending"
+                            text: qsTrId("list-trending")
+
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: pageStack.push("Movies.qml", {model: trendingMovies.sourceModel, mode: "trending"})
+                            }
+                        }
+
+                        MainMenuList {
+                            id: trendingMovies
+                            height: parent.height - y
+                            sourceModel: trakt.movies.trending()
+                            delegate: movieComponent
+                            onShowAll: pageStack.push("Movies.qml", {model: sourceModel, mode: "trending"})
+                        }
                     }
-                }
 
-                MainMenuList {
-                    id: popularMovies
-                    width: parent.width
-                    height: 225
-                    sourceModel: trakt.movies.popular()
-                    delegate: movieComponent
-                    onShowAll: pageStack.push("Movies.qml", {model: sourceModel, mode: "popular"})
+                    Column {
+                        width: moviesContainer.itemWidth
+                        height: moviesContainer.itemHeight
+
+                        SectionHeader {
+                            height: implicitHeight + Theme.paddingSmall * 2
+                            //% "Popular"
+                            text: qsTrId("list-popular")
+
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: pageStack.push("Movies.qml", {model: popularMovies.sourceModel, mode: "popular"})
+                            }
+                        }
+
+                        MainMenuList {
+                            id: popularMovies
+                            height: parent.height - y
+                            sourceModel: trakt.movies.popular()
+                            delegate: movieComponent
+                            onShowAll: pageStack.push("Movies.qml", {model: sourceModel, mode: "popular"})
+                        }
+                    }
                 }
             }
 
             Column {
-                id: showsColumn
-                width: videosContainer.itemWidth
-                height: childrenRect.height
+                width: mainMenu.width
+                height: mainMenu.height
 
-                Component {
-                    id: showComponent
-                    ListItem {
-                        width: 150
-                        height: width * 1.5
-
-                        Image {
-                            width: 150
-                            height: width * 1.5
-                            fillMode: Image.PreserveAspectFit
-
-                            CacheImage {
-                                source: images.poster.thumb
-                            }
-                        }
-
-                        onClicked: pageStack.push("ShowDetails.qml", {show: parent.parent.sourceModel.at(index)});
-                    }
-                }
+                Item { width: parent.width; height: Theme.paddingLarge }
 
                 MainMenuHeader {
                     maxWidth: parent.width
-                    height: Theme.itemSizeExtraSmall
                     //% "TV Shows"
                     title: qsTrId("menu-shows")
                 }
 
-                SectionHeader {
-                    height: implicitHeight + Theme.paddingSmall * 2
-                    //% "Trending"
-                    text: qsTrId("list-trending")
-
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: pageStack.push("Shows.qml", {model: trendingShows.sourceModel, mode: "trending"})
-                    }
-                }
-
-                MainMenuList {
-                    id: trendingShows
+                Turnable {
+                    id: showsContainer
+                    height: parent.height - y - Theme.paddingLarge
                     width: parent.width
-                    height: 225
-                    sourceModel: trakt.shows.trending()
-                    delegate: showComponent
-                    onShowAll: pageStack.push("Shows.qml", {model: sourceModel, mode: "trending"})
-                }
+                    columnSpacing: Theme.paddingLarge
 
-                SectionHeader {
-                    height: implicitHeight + Theme.paddingSmall * 2
-                    //% "Popular"
-                    text: qsTrId("list-popular")
+                    Column {
+                        width: showsContainer.itemWidth
+                        height: showsContainer.itemHeight
 
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: pageStack.push("Shows.qml", {model: popularShows.sourceModel, mode: "popular"})
+                        SectionHeader {
+                            height: implicitHeight + Theme.paddingSmall * 2
+                            //% "Trending"
+                            text: qsTrId("list-trending")
+
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: pageStack.push("Shows.qml", {model: trendingShows.sourceModel, mode: "trending"})
+                            }
+                        }
+
+                        MainMenuList {
+                            id: trendingShows
+                            height: parent.height - y
+                            sourceModel: trakt.shows.trending()
+                            delegate: showComponent
+                            onShowAll: pageStack.push("Shows.qml", {model: sourceModel, mode: "trending"})
+                        }
                     }
-                }
 
-                MainMenuList {
-                    id: popularShows
-                    width: parent.width
-                    height: 225
-                    sourceModel: trakt.shows.popular()
-                    delegate: showComponent
-                    onShowAll: pageStack.push("Shows.qml", {model: sourceModel, mode: "popular"})
+                    Column {
+                        width: showsContainer.itemWidth
+                        height: showsContainer.itemHeight
+
+                        SectionHeader {
+                            height: implicitHeight + Theme.paddingSmall * 2
+                            //% "Popular"
+                            text: qsTrId("list-popular")
+
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: pageStack.push("Shows.qml", {model: popularShows.sourceModel, mode: "popular"})
+                            }
+                        }
+
+                        MainMenuList {
+                            id: popularShows
+                            height: parent.height - y
+                            sourceModel: trakt.shows.popular()
+                            delegate: showComponent
+                            onShowAll: pageStack.push("Shows.qml", {model: sourceModel, mode: "popular"})
+                        }
+                    }
                 }
             }
         }

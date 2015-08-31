@@ -1,19 +1,27 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import harbour.tvdock 1.0
+import "../Utils.js" as Utils
 
-SilicaListView {
+SilicaGridView {
     id: root
     signal showAll()
     property variant sourceModel
+    property Page _page: Utils.findPage(root)
+    property int rows: Math.round(height / 225)
 
-    orientation: Qt.Horizontal
+    width: parent.width
+
+    flow: Grid.TopToBottom
     layoutDirection: Qt.LeftToRight
+    cellHeight: height / rows
+    cellWidth: cellHeight / 1.5
+
     clip: true
 
     model: LimitedModel {
         id: limitedModel
-        maxItems: 5
+        maxItems: Math.ceil(root.width / root.cellWidth) * root.rows
         sourceModel: root.sourceModel
     }
 
