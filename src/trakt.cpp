@@ -21,6 +21,7 @@ Trakt::Trakt(QObject *parent) :
     qmlRegisterUncreatableType<TraktPeople>("harbour.tvdock", 1, 0, "TraktPeople", "Get people using trakt.people");
     qmlRegisterUncreatableType<TraktPeopleModel>("harbour.tvdock", 1, 0, "TraktPeopleModel", "Get people using movie/show/...");
     qmlRegisterUncreatableType<TraktPeopleFilterModel>("harbour.tvdock", 1, 0, "TraktPeopleModel", "Use People.{cast/crew} instead");
+    qmlRegisterType<TraktPerson>("harbour.tvdock", 1, 0, "TraktPerson");
     qmlRegisterUncreatableType<TraktMovies>("harbour.tvdock", 1, 0, "TraktMovies", "Get movies using trakt.movies");
     qmlRegisterUncreatableType<TraktMoviesModel>("harbour.tvdock", 1, 0, "TraktMoviesModel", "Get movies using trakt.movies");
     qmlRegisterType<TraktMovie>("harbour.tvdock", 1, 0, "TraktMovie");

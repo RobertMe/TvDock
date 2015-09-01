@@ -28,6 +28,8 @@ Column {
             width: root.itemHeight / 1.5
             contentHeight: root.itemHeight
 
+            onClicked: pageStack.push("../pages/PersonDetails.qml", {person: castListView.model.at(index)})
+
             Image {
                 width: root.itemHeight / 1.5
                 height: root.itemHeight
@@ -59,6 +61,8 @@ Column {
         delegate: ListItem {
             width: root.itemHeight / 1.5
             contentHeight: root.itemHeight
+
+            onClicked: pageStack.push("../pages/PersonDetails.qml", {person: crewListView.model.at(index)})
 
             Image {
                 width: root.itemHeight / 1.5
