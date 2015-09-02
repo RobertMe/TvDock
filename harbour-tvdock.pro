@@ -31,7 +31,9 @@ OTHER_FILES += \
     qml/pages/EpisodeDetails.qml \
     qml/Utils.js \
     qml/components/DetailsPage.qml \
-    qml/pages/PersonDetails.qml
+    qml/pages/PersonDetails.qml \
+    qml/components/MovieItem.qml \
+    qml/components/ShowItem.qml \
 
 TRANSLATIONS += \
     translations/harbour-tvdock_en.ts

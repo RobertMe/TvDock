@@ -67,20 +67,8 @@ DetailsPage {
 
             model: movies
 
-            delegate: ListItem {
-                width: moviesGrid.cellWidth
-                contentHeight: moviesGrid.cellHeight
-
-                onClicked: pageStack.push("MovieDetails.qml", {movie: moviesGrid.model.at(index)})
-
-                Image {
-                    anchors.fill: parent
-                    fillMode: Image.PreserveAspectFit
-
-                    CacheImage {
-                        source: images.poster.thumb
-                    }
-                }
+            delegate: MovieItem {
+                grid: moviesGrid
             }
         }
     }
@@ -98,20 +86,8 @@ DetailsPage {
 
             model: shows
 
-            delegate: ListItem {
-                width: showsGrid.cellWidth
-                contentHeight: showsGrid.cellHeight
-
-                onClicked: pageStack.push("ShowDetails.qml", {show: showsGrid.model.at(index)})
-
-                Image {
-                    anchors.fill: parent
-                    fillMode: Image.PreserveAspectFit
-
-                    CacheImage {
-                        source: images.poster.thumb
-                    }
-                }
+            delegate: ShowItem {
+                grid: showsGrid
             }
         }
     }

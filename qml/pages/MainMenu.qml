@@ -7,44 +7,6 @@ Page {
     id: page
     allowedOrientations: defaultAllowedOrientations
 
-    Component {
-        id: movieComponent
-        ListItem {
-            width: parent.parent.cellWidth
-            contentHeight: parent.parent.cellHeight
-
-            Image {
-                anchors.fill: parent
-                fillMode: Image.PreserveAspectFit
-
-                CacheImage {
-                    source: images.poster.thumb
-                }
-            }
-
-            onClicked: pageStack.push("MovieDetails.qml", {movie: parent.parent.sourceModel.at(index)});
-        }
-    }
-
-    Component {
-        id: showComponent
-        ListItem {
-            width: parent.parent.cellWidth
-            contentHeight: parent.parent.cellHeight
-
-            Image {
-                anchors.fill: parent
-                fillMode: Image.PreserveAspectFit
-
-                CacheImage {
-                    source: images.poster.thumb
-                }
-            }
-
-            onClicked: pageStack.push("ShowDetails.qml", {show: parent.parent.sourceModel.at(index)});
-        }
-    }
-
     SilicaListView {
         id: mainMenu
         anchors.fill: parent
@@ -105,7 +67,10 @@ Page {
                             id: trendingMovies
                             height: parent.height - y
                             sourceModel: trakt.movies.trending()
-                            delegate: movieComponent
+                            delegate: MovieItem {
+                                grid: trendingMovies
+                            }
+
                             onShowAll: pageStack.push("Movies.qml", {model: sourceModel, mode: "trending"})
                         }
                     }
@@ -129,7 +94,10 @@ Page {
                             id: popularMovies
                             height: parent.height - y
                             sourceModel: trakt.movies.popular()
-                            delegate: movieComponent
+                            delegate: MovieItem {
+                                grid: popularMovies
+                            }
+
                             onShowAll: pageStack.push("Movies.qml", {model: sourceModel, mode: "popular"})
                         }
                     }
@@ -173,7 +141,10 @@ Page {
                             id: trendingShows
                             height: parent.height - y
                             sourceModel: trakt.shows.trending()
-                            delegate: showComponent
+                            delegate: ShowItem {
+                                grid: trendingShows
+                            }
+
                             onShowAll: pageStack.push("Shows.qml", {model: sourceModel, mode: "trending"})
                         }
                     }
@@ -197,7 +168,9 @@ Page {
                             id: popularShows
                             height: parent.height - y
                             sourceModel: trakt.shows.popular()
-                            delegate: showComponent
+                            delegate: ShowItem {
+                                grid: popularShows
+                            }
                             onShowAll: pageStack.push("Shows.qml", {model: sourceModel, mode: "popular"})
                         }
                     }
