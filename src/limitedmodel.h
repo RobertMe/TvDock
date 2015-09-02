@@ -16,6 +16,8 @@ public:
     int maxItems() const;
     void setMaxItems(int maxItems);
 
+    Q_INVOKABLE QObject *at(int i) const;
+
 signals:
     void maxItemsChanged();
 

@@ -1,5 +1,7 @@
 #include "limitedmodel.h"
 
+#include <libtraqt/traktmodel.h>
+
 LimitedModel::LimitedModel(QObject *parent) :
     QSortFilterProxyModel(parent),
     m_maxItems(0)
@@ -27,4 +29,14 @@ void LimitedModel::setMaxItems(int maxItems)
     m_maxItems = maxItems;
     emit maxItemsChanged();
     invalidateFilter();
+}
+
+QObject *LimitedModel::at(int i) const
+{
+    BaseTraktModel *model = dynamic_cast<BaseTraktModel*>(sourceModel());
+    if (!model) {
+        return 0;
+    }
+
+    return model->get(i);
 }
