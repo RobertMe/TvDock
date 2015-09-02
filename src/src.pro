@@ -13,7 +13,7 @@ SOURCES += main.cpp \
     imagecache.cpp \
     limitedmodel.cpp
 
-CONFIG += link_pkgconfig
+CONFIG += link_pkgconfig c++11
 PKGCONFIG += sailfishapp
 INCLUDEPATH += /usr/include/sailfishapp
 

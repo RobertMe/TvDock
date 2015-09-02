@@ -2,6 +2,8 @@
 
 #include <libtraqt/traktmodel.h>
 
+#include <libtraqt/traktitem.h>
+
 LimitedModel::LimitedModel(QObject *parent) :
     QSortFilterProxyModel(parent),
     m_maxItems(0)
