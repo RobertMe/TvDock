@@ -39,6 +39,8 @@ Column {
                 }
             }
         }
+
+        HorizontalScrollDecorator {}
     }
 
     SectionHeader {
@@ -73,5 +75,7 @@ Column {
                 }
             }
         }
+
+        HorizontalScrollDecorator {}
     }
 }

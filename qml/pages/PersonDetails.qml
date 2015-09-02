@@ -70,6 +70,8 @@ DetailsPage {
             delegate: MovieItem {
                 grid: moviesGrid
             }
+
+            HorizontalScrollDecorator {}
         }
     }
 
@@ -89,6 +91,8 @@ DetailsPage {
             delegate: ShowItem {
                 grid: showsGrid
             }
+
+            HorizontalScrollDecorator {}
         }
     }
 }

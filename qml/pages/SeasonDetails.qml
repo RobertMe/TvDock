@@ -79,6 +79,8 @@ DetailsPage {
                     }
                 }
             }
+
+            HorizontalScrollDecorator {}
         }
     }
 }
