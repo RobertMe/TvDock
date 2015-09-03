@@ -10,6 +10,7 @@ Page {
     property url sourceLandscape
     property alias title: header.title
     default property alias contents: view.contents
+    property bool loading
 
     property PullDownMenu pullDownMenu
 
@@ -35,6 +36,13 @@ Page {
         }
     }
 
+    BusyIndicator {
+        size: BusyIndicatorSize.Large
+        anchors.centerIn: parent
+        running: root.loading
+        visible: root.loading
+    }
+
     SilicaFlickable {
         id: flickable
         anchors.fill: parent
@@ -58,6 +66,7 @@ Page {
             }
             y: header.height - (root.isPortrait ? Theme.paddingLarge : Theme.paddingMedium)
             height: flickable.height - y
+            visible: !root.loading
         }
     }
 }

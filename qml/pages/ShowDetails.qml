@@ -16,6 +16,7 @@ DetailsPage {
 
     sourcePortrait: show.images.poster.medium
     sourceLandscape: show.images.fanart.medium
+    loading: !show.loaded
     title: show.title
 
     DetailsFlickablePage {

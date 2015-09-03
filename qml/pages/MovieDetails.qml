@@ -15,6 +15,7 @@ DetailsPage {
 
     sourcePortrait: movie.images.poster.medium
     sourceLandscape: movie.images.fanart.medium
+    loading: !movie.loaded
     title: movie.title
 
     pullDownMenu: PullDownMenu {

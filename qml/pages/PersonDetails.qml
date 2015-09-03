@@ -16,6 +16,7 @@ DetailsPage {
     }
 
     sourcePortrait: person.images.headshot.medium
+    loading: !person.loaded
     title: person.name
 
     DetailsFlickablePage {
