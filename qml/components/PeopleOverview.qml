@@ -2,12 +2,21 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import harbour.tvdock 1.0
 
-Column {
+Item {
     id: root
     property QtObject people
     property int itemHeight: 195
 
+    BusyIndicator {
+        size: BusyIndicatorSize.Large
+        anchors.centerIn: parent
+        visible: !root.people.loaded && root.people.loading
+        running: visible
+    }
+
     SectionHeader {
+        id: castHeader
+        anchors.top: parent.top
         //: "Cast" heading of item details
         //% "Cast"
         text: qsTrId("header-cast")
@@ -18,6 +27,7 @@ Column {
         id: castListView
         width: parent.width
         height: root.itemHeight
+        anchors.top: castHeader.bottom
 
         orientation: Qt.Horizontal
         layoutDirection: Qt.LeftToRight
@@ -44,6 +54,8 @@ Column {
     }
 
     SectionHeader {
+        id: crewHeader
+        anchors.top: castListView.bottom
         //: "Crew" heading of item details
         //% "Crew"
         text: qsTrId("header-crew")
@@ -54,6 +66,7 @@ Column {
         id: crewListView
         width: parent.width
         height: root.itemHeight
+        anchors.top: crewHeader.bottom
 
         orientation: Qt.Horizontal
         layoutDirection: Qt.LeftToRight

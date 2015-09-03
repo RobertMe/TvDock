@@ -80,6 +80,13 @@ DetailsPage {
 
             HorizontalScrollDecorator {}
         }
+
+        BusyIndicator {
+            size: BusyIndicatorSize.Large
+            anchors.centerIn: parent
+            visible: !moviesGrid.model.loaded && moviesGrid.model.loading
+            running: visible
+        }
     }
 
     DetailsFlickablePage {
@@ -106,6 +113,13 @@ DetailsPage {
             }
 
             HorizontalScrollDecorator {}
+        }
+
+        BusyIndicator {
+            size: BusyIndicatorSize.Large
+            anchors.centerIn: parent
+            visible: !showsGrid.model.loaded && showsGrid.model.loading
+            running: visible
         }
     }
 }

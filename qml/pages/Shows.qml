@@ -9,6 +9,13 @@ Page {
     property alias model: showsGrid.model
     allowedOrientations: defaultAllowedOrientations
 
+    BusyIndicator {
+        size: BusyIndicatorSize.Large
+        anchors.centerIn: parent
+        visible: !page.model.loaded && page.model.loading
+        running: visible
+    }
+
     SilicaGridView {
         id: showsGrid
 

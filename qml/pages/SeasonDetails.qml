@@ -92,5 +92,12 @@ DetailsPage {
 
             HorizontalScrollDecorator {}
         }
+
+        BusyIndicator {
+            size: BusyIndicatorSize.Large
+            anchors.centerIn: parent
+            visible: !episodesView.model.loaded && episodesView.model.loading
+            running: visible
+        }
     }
 }

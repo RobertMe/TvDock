@@ -25,6 +25,13 @@ SilicaGridView {
         sourceModel: root.sourceModel
     }
 
+    BusyIndicator {
+        size: BusyIndicatorSize.Medium
+        anchors.centerIn: parent
+        visible: !limitedModel.sourceModel.loaded && limitedModel.sourceModel.loading
+        running: visible
+    }
+
     MenuItem {
         id: showAllLeft
         //% "Show all"
@@ -45,6 +52,8 @@ SilicaGridView {
         y: (parent.height - width) / 2
         height: implicitHeight
         width: implicitWidth
+
+        visible: !limitedModel.sourceModel.loading
     }
 
     boundsBehavior: Flickable.DragOverBounds

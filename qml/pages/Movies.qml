@@ -9,6 +9,13 @@ Page {
     property alias model: moviesGrid.model
     allowedOrientations: defaultAllowedOrientations
 
+    BusyIndicator {
+        size: BusyIndicatorSize.Large
+        anchors.centerIn: parent
+        visible: !page.model.loaded && page.model.loading
+        running: visible
+    }
+
     SilicaGridView {
         id: moviesGrid
 

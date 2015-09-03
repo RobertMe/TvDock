@@ -104,6 +104,13 @@ DetailsPage {
                 HorizontalScrollDecorator {}
             }
         }
+
+        BusyIndicator {
+            size: BusyIndicatorSize.Large
+            anchors.centerIn: parent
+            visible: !seasonsView.model.loaded && seasonsView.model.loading
+            running: visible
+        }
     }
 
     DetailsFlickablePage {

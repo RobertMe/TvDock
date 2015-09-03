@@ -35,7 +35,7 @@ void LimitedModel::setMaxItems(int maxItems)
 
 QObject *LimitedModel::at(int i) const
 {
-    BaseTraktModel *model = dynamic_cast<BaseTraktModel*>(sourceModel());
+    TraktModelBase *model = dynamic_cast<TraktModelBase*>(sourceModel());
     if (!model) {
         return 0;
     }
