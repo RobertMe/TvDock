@@ -38,10 +38,18 @@ DetailsPage {
     }
 
     DetailsFlickablePage {
+        SectionHeader {
+            id: episodesHeader
+            //: "Episodes" heading for season details
+            //% "Episodes"
+            text: qsTrId("header-episodes")
+            anchors {top: parent.top; left: parent.left; right: parent.right; rightMargin: Theme.paddingLarge; }
+        }
+
         SilicaGridView {
             id: episodesView
 
-            anchors.fill: parent
+            anchors {top: episodesHeader.bottom; bottom: parent.bottom; left: parent.left; right: parent.right; }
 
             layoutDirection: Qt.LeftToRight
             flow: Grid.TopToBottom

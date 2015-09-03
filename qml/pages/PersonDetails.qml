@@ -56,11 +56,17 @@ DetailsPage {
     }
 
     DetailsFlickablePage {
+        SectionHeader {
+            id: moviesHeader
+            text: qsTrId("header-movies")
+            anchors {top: parent.top; left: parent.left; right: parent.right; rightMargin: Theme.paddingLarge; }
+        }
+
         SilicaGridView {
             id: moviesGrid
             property int rowCount: Math.round(height / 225)
 
-            anchors.fill: parent
+            anchors {top: moviesHeader.bottom; bottom: parent.bottom; left: parent.left; right: parent.right; }
             flow: Grid.TopToBottom
             layoutDirection: Qt.LeftToRight
             cellWidth: cellHeight / 1.5
@@ -77,11 +83,17 @@ DetailsPage {
     }
 
     DetailsFlickablePage {
+        SectionHeader {
+            id: showsHeader
+            text: qsTrId("header-episodes")
+            anchors {top: parent.top; left: parent.left; right: parent.right; rightMargin: Theme.paddingLarge; }
+        }
+
         SilicaGridView {
             id: showsGrid
             property int rowCount: Math.round(height / 225)
 
-            anchors.fill: parent
+            anchors {top: showsHeader.bottom; bottom: parent.bottom; left: parent.left; right: parent.right; }
             flow: Grid.TopToBottom
             layoutDirection: Qt.LeftToRight
             cellWidth: cellHeight / 1.5

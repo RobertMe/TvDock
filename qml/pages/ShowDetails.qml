@@ -72,7 +72,7 @@ DetailsPage {
             SectionHeader {
                 //: "Seasons" heading for show details
                 //% "Seasons"
-                text: qsTrId("show-seasons")
+                text: qsTrId("header-seasons")
                 height: implicitHeight
             }
 

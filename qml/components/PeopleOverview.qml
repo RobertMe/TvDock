@@ -10,7 +10,7 @@ Column {
     SectionHeader {
         //: "Cast" heading of item details
         //% "Cast"
-        text: qsTrId("item-cast")
+        text: qsTrId("header-cast")
         height: implicitHeight
     }
 
@@ -46,7 +46,7 @@ Column {
     SectionHeader {
         //: "Crew" heading of item details
         //% "Crew"
-        text: qsTrId("item-crew")
+        text: qsTrId("header-crew")
         height: implicitHeight
     }
 

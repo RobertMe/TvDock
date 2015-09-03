@@ -39,7 +39,7 @@ Page {
                     id: moviesHeader
                     maxWidth: parent.width
                     //% "Movies"
-                    title: qsTrId("menu-movies")
+                    title: qsTrId("header-movies")
                 }
 
                 Turnable {
@@ -113,7 +113,7 @@ Page {
                 MainMenuHeader {
                     maxWidth: parent.width
                     //% "TV Shows"
-                    title: qsTrId("menu-shows")
+                    title: qsTrId("header-shows")
                 }
 
                 Turnable {
