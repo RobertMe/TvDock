@@ -8,6 +8,7 @@
 #include "libtraqt/traktpeople.h"
 #include "libtraqt/traktcheckin.h"
 #include "libtraqt/traktepisodesmodel.h"
+#include "libtraqt/traktsearchmodel.h"
 
 Trakt::Trakt(QObject *parent) :
     QObject(parent),
@@ -15,6 +16,7 @@ Trakt::Trakt(QObject *parent) :
     m_shows(new TraktShows(this)),
     m_people(new TraktPeople(this))
 {
+    qmlRegisterUncreatableType<TraktItem>("harbour.tvdock", 1, 0, "TraktItem", "Use derived types");
     qmlRegisterUncreatableType<TraktIds>("harbour.tvdock", 1, 0, "TraktIds", "Not creatable, but fetchable from item using ids property");
     qmlRegisterUncreatableType<TraktAuthenticator>("harbour.tvdock", 1, 0, "TraktAuthenticator", "Get authenticator from trakt.authenticator");
     qmlRegisterType<TraktImages>("harbour.tvdock", 1, 0, "TraktImages");
@@ -35,6 +37,7 @@ Trakt::Trakt(QObject *parent) :
     qmlRegisterUncreatableType<TraktEpisodesModel>("harbour.tvdock", 1, 0, "TraktEpisodesModel", "Get episodes using trakt.shows.getEpisodes(season)");
     qmlRegisterType<TraktEpisode>("harbour.tvdock", 1, 0, "TraktEpisode");
     qmlRegisterUncreatableType<TraktCheckin>("harbour.tvdock", 1, 0, "TraktCheckin", "Create checkin using trakt.checkin");
+    qmlRegisterType<TraktSearchModel>("harbour.tvdock", 1, 0, "TraktSearchModel");
 }
 
 TraktAuthenticator* Trakt::authenticator() const

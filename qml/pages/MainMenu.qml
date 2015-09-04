@@ -16,15 +16,17 @@ Page {
         snapMode: ListView.SnapOneItem
 
         PullDownMenu {
-            enabled: !trakt.authenticator.authorized
-            visible: enabled
-
             MenuItem {
                 //% "Log in"
                 text: qsTrId("login")
-                onClicked: {
-                    pageStack.push("Authenticate.qml");
-                }
+                onClicked: pageStack.push("Authenticate.qml")
+                enabled: !trakt.authenticator.authorized
+                visible: enabled
+            }
+            MenuItem {
+                //% "Search"
+                text: qsTrId("search")
+                onClicked: pageStack.push("Search.qml")
             }
         }
 

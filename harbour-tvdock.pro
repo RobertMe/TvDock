@@ -34,6 +34,8 @@ OTHER_FILES += \
     qml/pages/PersonDetails.qml \
     qml/components/MovieItem.qml \
     qml/components/ShowItem.qml \
+    qml/pages/Search.qml \
+    qml/pages/SearchOptions.qml
 
 TRANSLATIONS += \
     translations/harbour-tvdock_en.ts

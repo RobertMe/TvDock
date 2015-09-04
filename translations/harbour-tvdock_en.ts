@@ -4,43 +4,47 @@
 <context>
     <name></name>
     <message id="movies-header">
-        <location filename="../qml/pages/Movies.qml" line="20"/>
+        <location filename="../qml/pages/Movies.qml" line="27"/>
         <source>Movies: %1</source>
         <extracomment>Header of movies listing, containing the mode name</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="login">
-        <location filename="../qml/pages/MainMenu.qml" line="24"/>
+        <location filename="../qml/pages/MainMenu.qml" line="21"/>
         <source>Log in</source>
         <translation type="unfinished"></translation>
     </message>
+    <message id="search">
+        <location filename="../qml/pages/MainMenu.qml" line="28"/>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message id="header-movies">
-        <location filename="../qml/pages/MainMenu.qml" line="42"/>
+        <location filename="../qml/pages/MainMenu.qml" line="44"/>
         <location filename="../qml/pages/PersonDetails.qml" line="61"/>
-        <location filename="../qml/pages/PersonDetails.qml" line="88"/>
         <source>Movies</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="list-trending">
-        <location filename="../qml/pages/MainMenu.qml" line="58"/>
-        <location filename="../qml/pages/MainMenu.qml" line="132"/>
+        <location filename="../qml/pages/MainMenu.qml" line="60"/>
+        <location filename="../qml/pages/MainMenu.qml" line="134"/>
         <source>Trending</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="list-popular">
-        <location filename="../qml/pages/MainMenu.qml" line="85"/>
-        <location filename="../qml/pages/MainMenu.qml" line="159"/>
+        <location filename="../qml/pages/MainMenu.qml" line="87"/>
+        <location filename="../qml/pages/MainMenu.qml" line="161"/>
         <source>Popular</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="header-shows">
-        <location filename="../qml/pages/MainMenu.qml" line="116"/>
+        <location filename="../qml/pages/MainMenu.qml" line="118"/>
         <source>TV Shows</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="menu-show-all">
-        <location filename="../qml/components/MainMenuList.qml" line="31"/>
-        <location filename="../qml/components/MainMenuList.qml" line="42"/>
+        <location filename="../qml/components/MainMenuList.qml" line="38"/>
+        <location filename="../qml/components/MainMenuList.qml" line="49"/>
         <source>Show all</source>
         <translation type="unfinished"></translation>
     </message>
@@ -72,7 +76,7 @@ Trailer of show/show/...</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="shows-header">
-        <location filename="../qml/pages/Shows.qml" line="20"/>
+        <location filename="../qml/pages/Shows.qml" line="27"/>
         <source>TV Shows: %1</source>
         <extracomment>Header of TV shows listing, containing the mode name</extracomment>
         <translation type="unfinished"></translation>
@@ -106,6 +110,7 @@ Trailer of show/show/...</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="header-episodes">
+        <location filename="../qml/pages/PersonDetails.qml" line="95"/>
         <location filename="../qml/pages/SeasonDetails.qml" line="45"/>
         <source>Episodes</source>
         <extracomment>&quot;Episodes&quot; heading for season details</extracomment>
@@ -118,15 +123,62 @@ Trailer of show/show/...</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="header-cast">
-        <location filename="../qml/components/PeopleOverview.qml" line="13"/>
+        <location filename="../qml/components/PeopleOverview.qml" line="22"/>
         <source>Cast</source>
         <extracomment>&quot;Cast&quot; heading of item details</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="header-crew">
-        <location filename="../qml/components/PeopleOverview.qml" line="49"/>
+        <location filename="../qml/components/PeopleOverview.qml" line="61"/>
         <source>Crew</source>
         <extracomment>&quot;Crew&quot; heading of item details</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="header-search">
+        <location filename="../qml/pages/Search.qml" line="41"/>
+        <source>Search</source>
+        <extracomment>Search header</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="placeholder-search">
+        <location filename="../qml/pages/Search.qml" line="48"/>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="header-search-options">
+        <location filename="../qml/pages/SearchOptions.qml" line="14"/>
+        <source>Search options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="search-type">
+        <location filename="../qml/pages/SearchOptions.qml" line="22"/>
+        <source>Types</source>
+        <oldsource>Type</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="search-type-movie">
+        <location filename="../qml/pages/SearchOptions.qml" line="27"/>
+        <source>Movie</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="search-type-show">
+        <location filename="../qml/pages/SearchOptions.qml" line="33"/>
+        <source>Show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="search-type-episode">
+        <location filename="../qml/pages/SearchOptions.qml" line="39"/>
+        <source>Episode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="search-type-person">
+        <location filename="../qml/pages/SearchOptions.qml" line="45"/>
+        <source>Person</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="search-type-list">
+        <location filename="../qml/pages/SearchOptions.qml" line="51"/>
+        <source>List</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
