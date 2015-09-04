@@ -135,13 +135,13 @@ Trailer of show/show/...</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="header-search">
-        <location filename="../qml/pages/Search.qml" line="41"/>
+        <location filename="../qml/pages/Search.qml" line="49"/>
         <source>Search</source>
         <extracomment>Search header</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="placeholder-search">
-        <location filename="../qml/pages/Search.qml" line="48"/>
+        <location filename="../qml/pages/Search.qml" line="56"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
@@ -162,23 +162,23 @@ Trailer of show/show/...</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="search-type-show">
-        <location filename="../qml/pages/SearchOptions.qml" line="33"/>
+        <location filename="../qml/pages/SearchOptions.qml" line="41"/>
         <source>Show</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="search-type-episode">
-        <location filename="../qml/pages/SearchOptions.qml" line="39"/>
+        <location filename="../qml/pages/SearchOptions.qml" line="55"/>
         <source>Episode</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="search-type-person">
-        <location filename="../qml/pages/SearchOptions.qml" line="45"/>
+        <location filename="../qml/pages/SearchOptions.qml" line="69"/>
         <source>Person</source>
         <translation type="unfinished"></translation>
     </message>
-    <message id="search-type-list">
-        <location filename="../qml/pages/SearchOptions.qml" line="51"/>
-        <source>List</source>
+    <message id="header-authenticating">
+        <location filename="../qml/pages/Authenticating.qml" line="17"/>
+        <source>Authenticating</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

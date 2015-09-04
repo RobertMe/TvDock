@@ -4,8 +4,21 @@ import "pages"
 
 ApplicationWindow
 {
-    initialPage: Component {
+    initialPage: trakt.authenticator.authorizing ? authenticatingComponent : mainMenuComponent
+
+    function goToMain() {
+        pageStack.clear();
+        pageStack.push(mainMenuComponent);
+    }
+
+    Component {
+        id: mainMenuComponent
         MainMenu {}
+    }
+
+    Component {
+        id: authenticatingComponent
+        Authenticating {}
     }
 
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
