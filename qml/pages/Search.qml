@@ -15,7 +15,7 @@ Page {
             }
 
             searchModel.type = _optionsPage.type;
-            if (/[12][0-4]{3}/.test(searchModel.year)) {
+            if (/[12][0-9]{3}/.test(_optionsPage.year)) {
                 searchModel.year = parseInt(_optionsPage.year, 10);
             } else {
                 searchModel.year = 0;

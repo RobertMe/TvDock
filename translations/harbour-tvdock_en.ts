@@ -39,6 +39,7 @@
     </message>
     <message id="header-shows">
         <location filename="../qml/pages/MainMenu.qml" line="118"/>
+        <location filename="../qml/pages/PersonDetails.qml" line="96"/>
         <source>TV Shows</source>
         <translation type="unfinished"></translation>
     </message>
@@ -110,7 +111,6 @@ Trailer of show/show/...</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="header-episodes">
-        <location filename="../qml/pages/PersonDetails.qml" line="95"/>
         <location filename="../qml/pages/SeasonDetails.qml" line="45"/>
         <source>Episodes</source>
         <extracomment>&quot;Episodes&quot; heading for season details</extracomment>
@@ -135,49 +135,58 @@ Trailer of show/show/...</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="header-search">
-        <location filename="../qml/pages/Search.qml" line="49"/>
+        <location filename="../qml/pages/Search.qml" line="50"/>
         <source>Search</source>
         <extracomment>Search header</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="placeholder-search">
-        <location filename="../qml/pages/Search.qml" line="56"/>
+        <location filename="../qml/pages/Search.qml" line="57"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="header-search-options">
-        <location filename="../qml/pages/SearchOptions.qml" line="14"/>
+        <location filename="../qml/pages/SearchOptions.qml" line="15"/>
         <source>Search options</source>
         <translation type="unfinished"></translation>
     </message>
-    <message id="search-type">
-        <location filename="../qml/pages/SearchOptions.qml" line="22"/>
+    <message id="search-label-type">
+        <location filename="../qml/pages/SearchOptions.qml" line="29"/>
         <source>Types</source>
-        <oldsource>Type</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message id="search-type-movie">
-        <location filename="../qml/pages/SearchOptions.qml" line="27"/>
+        <location filename="../qml/pages/SearchOptions.qml" line="34"/>
         <source>Movie</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="search-type-show">
-        <location filename="../qml/pages/SearchOptions.qml" line="41"/>
+        <location filename="../qml/pages/SearchOptions.qml" line="48"/>
         <source>Show</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="search-type-episode">
-        <location filename="../qml/pages/SearchOptions.qml" line="55"/>
+        <location filename="../qml/pages/SearchOptions.qml" line="62"/>
         <source>Episode</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="search-type-person">
-        <location filename="../qml/pages/SearchOptions.qml" line="69"/>
+        <location filename="../qml/pages/SearchOptions.qml" line="76"/>
         <source>Person</source>
         <translation type="unfinished"></translation>
     </message>
+    <message id="search-placeholder-year">
+        <location filename="../qml/pages/SearchOptions.qml" line="110"/>
+        <source>Year</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="search-label-year">
+        <location filename="../qml/pages/SearchOptions.qml" line="112"/>
+        <source>Year</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message id="header-authenticating">
-        <location filename="../qml/pages/Authenticating.qml" line="17"/>
+        <location filename="../qml/pages/Authenticating.qml" line="18"/>
         <source>Authenticating</source>
         <translation type="unfinished"></translation>
     </message>
