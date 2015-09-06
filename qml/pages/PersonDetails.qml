@@ -92,7 +92,7 @@ DetailsPage {
     DetailsFlickablePage {
         SectionHeader {
             id: showsHeader
-            text: qsTrId("header-episodes")
+            text: qsTrId("header-shows")
             anchors {top: parent.top; left: parent.left; right: parent.right; rightMargin: Theme.paddingLarge; }
         }
 
