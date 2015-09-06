@@ -64,13 +64,14 @@ DetailsPage {
 
         SilicaGridView {
             id: moviesGrid
-            property int rowCount: Math.round(height / 225)
+            property int maxHeight: parent.height - y
+            property int rowCount: Math.round(maxHeight / 225)
 
             anchors {top: moviesHeader.bottom; bottom: parent.bottom; left: parent.left; right: parent.right; }
             flow: Grid.TopToBottom
             layoutDirection: Qt.LeftToRight
             cellWidth: cellHeight / 1.5
-            cellHeight: parent.height / rowCount
+            cellHeight: maxHeight / rowCount
 
             model: movies
 
@@ -98,13 +99,14 @@ DetailsPage {
 
         SilicaGridView {
             id: showsGrid
-            property int rowCount: Math.round(height / 225)
+            property int maxHeight: parent.height - y
+            property int rowCount: Math.round(maxHeight / 225)
 
             anchors {top: showsHeader.bottom; bottom: parent.bottom; left: parent.left; right: parent.right; }
             flow: Grid.TopToBottom
             layoutDirection: Qt.LeftToRight
             cellWidth: cellHeight / 1.5
-            cellHeight: parent.height / rowCount
+            cellHeight: maxHeight / rowCount
 
             model: shows
 
