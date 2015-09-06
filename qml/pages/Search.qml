@@ -20,6 +20,8 @@ Page {
             } else {
                 searchModel.year = 0;
             }
+
+            searchGrid.headerItem.tryFocusSearchField();
         }
     }
 
@@ -43,6 +45,13 @@ Page {
 
         header: Column {
             width: searchGrid.width
+
+            function tryFocusSearchField() {
+                if (searchField.text.length === 0) {
+                    searchField.forceActiveFocus();
+                }
+            }
+
             PageHeader {
                 //: Search header
                 //% "Search"
