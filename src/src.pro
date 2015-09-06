@@ -52,5 +52,6 @@ OTHER_FILES += \
     ../qml/components/DetailsFlickablePage.qml \
     ../qml/components/Turnable.qml \
     ../qml/pages/SeasonDetails.qml \
-    ../qml/pages/Authenticating.qml
+    ../qml/pages/Authenticating.qml \
+    ../qml/cover/Poster.qml
 

@@ -11,7 +11,6 @@ OTHER_FILES += \
     rpm/harbour-tvdock.yaml \
     translations/*.ts \
     harbour-tvdock.desktop \
-    qml/cover/CoverPage.qml \
     qml/pages/Authenticate.qml \
     qml/main.qml \
     qml/pages/MainMenu.qml \
@@ -36,7 +35,13 @@ OTHER_FILES += \
     qml/components/ShowItem.qml \
     qml/pages/Search.qml \
     qml/pages/SearchOptions.qml \
-    qml/pages/Authenticating.qml
+    qml/pages/Authenticating.qml \
+    qml/cover/Default.qml \
+    qml/cover/Poster.qml \
+    qml/cover/Episode.qml \
+    qml/cover/Person.qml \
+    qml/cover/ItemList.qml \
+    qml/cover/Authenticating.qml
 
 TRANSLATIONS += \
     translations/harbour-tvdock_en.ts

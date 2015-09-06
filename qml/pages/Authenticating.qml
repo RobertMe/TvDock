@@ -7,6 +7,15 @@ Page {
     id: page
     allowedOrientations: defaultAllowedOrientations
 
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            showCover("Authenticating", {});
+            if (trakt.authenticator.authorized) {
+                goToMain();
+            }
+        }
+    }
+
     Column {
         anchors.verticalCenter: parent.verticalCenter
         width: parent.width
@@ -30,14 +39,6 @@ Page {
     Connections {
         target: trakt.authenticator
         onAuthorizedChanged: {
-            if (trakt.authenticator.authorized) {
-                goToMain();
-            }
-        }
-    }
-
-    onStatusChanged: {
-        if (status === PageStatus.Active) {
             if (trakt.authenticator.authorized) {
                 goToMain();
             }

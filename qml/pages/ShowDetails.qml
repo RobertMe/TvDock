@@ -14,6 +14,12 @@ DetailsPage {
         }
     }
 
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            showCover("Poster", {item: show});
+        }
+    }
+
     sourcePortrait: show.images.poster.medium
     sourceLandscape: show.images.fanart.medium
     loading: !show.loaded

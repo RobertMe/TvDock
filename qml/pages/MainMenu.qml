@@ -7,6 +7,20 @@ Page {
     id: page
     allowedOrientations: defaultAllowedOrientations
 
+    function updateCover() {
+        if (mainMenu.currentIndex === 0) {
+            showCover("ItemList", {items: trendingMovies.sourceModel, title: qsTrId("header-movies") });
+        } else if (mainMenu.currentIndex === 1) {
+            showCover("ItemList", {items: trendingShows.sourceModel, title: qsTrId("header-shows") });
+        }
+    }
+
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            updateCover();
+        }
+    }
+
     SilicaListView {
         id: mainMenu
         anchors.fill: parent
@@ -28,6 +42,12 @@ Page {
                 text: qsTrId("search")
                 onClicked: pageStack.push("Search.qml")
             }
+        }
+
+        onCurrentIndexChanged: page.updateCover()
+
+        onFlickEnded: {
+            currentIndex = indexAt(contentX, contentY)
         }
 
         model: VisualItemModel {

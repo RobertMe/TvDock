@@ -9,6 +9,12 @@ Page {
     property alias model: moviesGrid.model
     allowedOrientations: defaultAllowedOrientations
 
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            showCover("ItemList", {items: moviesGrid.model, title: qsTrId("list-" + page.mode) + "\n" + qsTrId("header-movies")});
+        }
+    }
+
     BusyIndicator {
         size: BusyIndicatorSize.Large
         anchors.centerIn: parent
@@ -24,7 +30,7 @@ Page {
         header: PageHeader {
             //: Header of movies listing, containing the mode name
             //% "Movies: %1"
-            title: qsTrId("movies-header").arg(qsTrId("list-" + page.mode));
+            title: qsTrId("movies-header").arg(qsTrId("list-" + page.mode))
         }
 
         anchors.fill: parent

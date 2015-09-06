@@ -8,6 +8,12 @@ DetailsPage {
     property TraktSeason season
     property QtObject episodes: trakt.shows.getEpisodes(season)
 
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            showCover("Poster", {item: season});
+        }
+    }
+
     sourcePortrait: season.images.poster.medium || season.show.images.poster.medium
     sourceLandscape: season.show.images.fanart.medium
     loading: !season.loaded

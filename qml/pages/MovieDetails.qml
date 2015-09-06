@@ -13,6 +13,12 @@ DetailsPage {
         }
     }
 
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            showCover("Poster", {item: movie});
+        }
+    }
+
     sourcePortrait: movie.images.poster.medium
     sourceLandscape: movie.images.fanart.medium
     loading: !movie.loaded

@@ -15,6 +15,12 @@ DetailsPage {
         }
     }
 
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            showCover("Person", {person: person});
+        }
+    }
+
     sourcePortrait: person.images.headshot.medium
     loading: !person.loaded
     title: person.name

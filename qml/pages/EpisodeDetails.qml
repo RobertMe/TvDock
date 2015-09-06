@@ -13,6 +13,12 @@ DetailsPage {
         }
     }
 
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            showCover("Episode", {episode: episode});
+        }
+    }
+
     sourcePortrait: episode.season.images.poster.medium || episode.season.show.images.poster.medium
     sourceLandscape: episode.images.screenshot.medium || episode.season.show.images.fanart.medium
     loading: !episode.loaded

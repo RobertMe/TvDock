@@ -9,6 +9,12 @@ Page {
     property alias model: showsGrid.model
     allowedOrientations: defaultAllowedOrientations
 
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            showCover("ItemList", {items: showsGrid.model, title: qsTrId("list-" + page.mode) + "\n" + qsTrId("header-shows")});
+        }
+    }
+
     BusyIndicator {
         size: BusyIndicatorSize.Large
         anchors.centerIn: parent

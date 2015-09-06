@@ -10,6 +10,7 @@ Page {
 
     onStatusChanged: {
         if (status === PageStatus.Active) {
+            showCover("ItemList", {items: searchGrid.model, title: qsTrId("header-search") + "\n" + searchModel.query });
             if (!_optionsPage) {
                 _optionsPage = pageStack.pushAttached("SearchOptions.qml", {type: searchModel.type, year: searchModel.year});
             }
@@ -29,6 +30,7 @@ Page {
         target: searchModel
         onTypeChanged: _optionsPage.type = searchModel.type
         onYearChanged: _optionsPage.year = searchModel.year
+        onQueryChanged: showCover("ItemList", {items: searchGrid.model, title: qsTrId("header-search") + "\n" + searchModel.query });
     }
 
     BusyIndicator {
