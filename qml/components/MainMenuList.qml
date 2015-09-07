@@ -19,8 +19,10 @@ Column {
     SectionHeader {
         id: header
         height: implicitHeight + Theme.paddingSmall * 2
+        color: headerArea.pressed ? Theme.highlightColor: Theme.primaryColor
 
         MouseArea {
+            id: headerArea
             anchors.fill: parent
             onClicked: showAll()
         }
@@ -54,37 +56,17 @@ Column {
             running: visible
         }
 
-        MenuItem {
-            id: showAllLeft
-            //% "Show all"
-            text: qsTrId("menu-show-all")
-            transform: Rotation { angle: -90; }
-            x: (-parent.contentX) - height
-            y: (parent.height - width) / 2 + width
-            height: implicitHeight
-            width: implicitWidth
-        }
+        footer: Item {
+            height: grid.height
+            width: childrenRect.height
+            Button {
+                //% "Show all"
+                text: qsTrId("menu-show-all")
+                transform: Rotation { angle: 90; }
+                x: height
+                y: (grid.height - width) / 2
 
-        MenuItem {
-            id: showAllRight
-            //% "Show all"
-            text: qsTrId("menu-show-all")
-            transform: Rotation { angle: 90; }
-            x: (-parent.contentX) + parent.contentWidth + height
-            y: (parent.height - width) / 2
-            height: implicitHeight
-            width: implicitWidth
-
-            visible: !limitedModel.sourceModel.loading
-        }
-
-        boundsBehavior: Flickable.DragOverBounds
-
-        onDraggingHorizontallyChanged: {
-            if (!draggingHorizontally) {
-                if (showAllLeft.x > 0 || width > showAllRight.x) {
-                    root.showAll()
-                }
+                onClicked: root.showAll();
             }
         }
     }

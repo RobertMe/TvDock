@@ -28,34 +28,33 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="list-trending">
-        <location filename="../qml/pages/MainMenu.qml" line="80"/>
-        <location filename="../qml/pages/MainMenu.qml" line="154"/>
+        <location filename="../qml/pages/MainMenu.qml" line="76"/>
+        <location filename="../qml/pages/MainMenu.qml" line="124"/>
         <source>Trending</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="list-popular">
-        <location filename="../qml/pages/MainMenu.qml" line="107"/>
-        <location filename="../qml/pages/MainMenu.qml" line="181"/>
+        <location filename="../qml/pages/MainMenu.qml" line="90"/>
+        <location filename="../qml/pages/MainMenu.qml" line="138"/>
         <source>Popular</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="header-shows">
         <location filename="../qml/pages/MainMenu.qml" line="14"/>
-        <location filename="../qml/pages/MainMenu.qml" line="138"/>
+        <location filename="../qml/pages/MainMenu.qml" line="112"/>
         <location filename="../qml/pages/PersonDetails.qml" line="102"/>
         <location filename="../qml/pages/Shows.qml" line="14"/>
         <source>TV Shows</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="menu-show-all">
-        <location filename="../qml/components/MainMenuList.qml" line="38"/>
-        <location filename="../qml/components/MainMenuList.qml" line="49"/>
+        <location filename="../qml/components/MainMenuList.qml" line="64"/>
         <source>Show all</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="item-rating">
         <location filename="../qml/pages/EpisodeDetails.qml" line="61"/>
-        <location filename="../qml/pages/MovieDetails.qml" line="83"/>
+        <location filename="../qml/pages/MovieDetails.qml" line="81"/>
         <location filename="../qml/pages/SeasonDetails.qml" line="40"/>
         <location filename="../qml/pages/ShowDetails.qml" line="48"/>
         <source>%1% (%2 votes)</source>
@@ -64,7 +63,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="item-homepage">
-        <location filename="../qml/pages/MovieDetails.qml" line="90"/>
+        <location filename="../qml/pages/MovieDetails.qml" line="88"/>
         <location filename="../qml/pages/PersonDetails.qml" line="55"/>
         <location filename="../qml/pages/ShowDetails.qml" line="55"/>
         <source>Homepage</source>
@@ -72,7 +71,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="item-trailer">
-        <location filename="../qml/pages/MovieDetails.qml" line="100"/>
+        <location filename="../qml/pages/MovieDetails.qml" line="98"/>
         <location filename="../qml/pages/ShowDetails.qml" line="65"/>
         <source>Trailer</source>
         <extracomment>Trailer of movie/show/...
@@ -88,7 +87,7 @@ Trailer of show/show/...</extracomment>
     </message>
     <message id="checkin-start">
         <location filename="../qml/pages/CheckInDialog.qml" line="15"/>
-        <location filename="../qml/pages/MovieDetails.qml" line="34"/>
+        <location filename="../qml/pages/MovieDetails.qml" line="32"/>
         <source>Check in</source>
         <extracomment>Start checkin process for movie or episode</extracomment>
         <translation type="unfinished"></translation>
