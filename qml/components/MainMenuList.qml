@@ -3,65 +3,88 @@ import Sailfish.Silica 1.0
 import harbour.tvdock 1.0
 import "../Utils.js" as Utils
 
-SilicaGridView {
+Column {
     id: root
-    signal showAll()
+    property alias title: header.text
+    property alias delegate: grid.delegate
+    property alias grid: grid
+    property string mode
+    property string pageName
     property variant sourceModel
-    property Page _page: Utils.findPage(root)
-    property int rows: Math.round(height / 225)
 
-    width: parent.width
-
-    flow: Grid.TopToBottom
-    layoutDirection: Qt.LeftToRight
-    cellHeight: height / rows
-    cellWidth: cellHeight / 1.5
-
-    clip: true
-
-    model: LimitedModel {
-        id: limitedModel
-        maxItems: Math.ceil(root.width / root.cellWidth) * root.rows
-        sourceModel: root.sourceModel
+    function showAll() {
+        pageStack.push(pageName, {model: sourceModel, mode: mode})
     }
 
-    BusyIndicator {
-        size: BusyIndicatorSize.Medium
-        anchors.centerIn: parent
-        visible: !limitedModel.sourceModel.loaded && limitedModel.sourceModel.loading
-        running: visible
+    SectionHeader {
+        id: header
+        height: implicitHeight + Theme.paddingSmall * 2
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: showAll()
+        }
     }
 
-    MenuItem {
-        id: showAllLeft
-        //% "Show all"
-        text: qsTrId("menu-show-all")
-        transform: Rotation { angle: -90; }
-        x: (-parent.contentX) - height
-        y: (parent.height - width) / 2 + width
-        height: implicitHeight
-        width: implicitWidth
-    }
+    SilicaGridView {
+        id: grid
+        property Page _page: Utils.findPage(root)
+        property int rows: Math.round(height / 225)
 
-    MenuItem {
-        id: showAllRight
-        //% "Show all"
-        text: qsTrId("menu-show-all")
-        transform: Rotation { angle: 90; }
-        x: (-parent.contentX) + parent.contentWidth + height
-        y: (parent.height - width) / 2
-        height: implicitHeight
-        width: implicitWidth
+        width: parent.width
+        height: parent.height - y
 
-        visible: !limitedModel.sourceModel.loading
-    }
+        flow: Grid.TopToBottom
+        layoutDirection: Qt.LeftToRight
+        cellHeight: height / rows
+        cellWidth: cellHeight / 1.5
 
-    boundsBehavior: Flickable.DragOverBounds
+        clip: true
 
-    onDraggingHorizontallyChanged: {
-        if (!draggingHorizontally) {
-            if (showAllLeft.x > 0 || width > showAllRight.x) {
-                root.showAll()
+        model: LimitedModel {
+            id: limitedModel
+            maxItems: Math.ceil(grid.width / grid.cellWidth) * grid.rows
+            sourceModel: root.sourceModel
+        }
+
+        BusyIndicator {
+            size: BusyIndicatorSize.Medium
+            anchors.centerIn: parent
+            visible: !limitedModel.sourceModel.loaded && limitedModel.sourceModel.loading
+            running: visible
+        }
+
+        MenuItem {
+            id: showAllLeft
+            //% "Show all"
+            text: qsTrId("menu-show-all")
+            transform: Rotation { angle: -90; }
+            x: (-parent.contentX) - height
+            y: (parent.height - width) / 2 + width
+            height: implicitHeight
+            width: implicitWidth
+        }
+
+        MenuItem {
+            id: showAllRight
+            //% "Show all"
+            text: qsTrId("menu-show-all")
+            transform: Rotation { angle: 90; }
+            x: (-parent.contentX) + parent.contentWidth + height
+            y: (parent.height - width) / 2
+            height: implicitHeight
+            width: implicitWidth
+
+            visible: !limitedModel.sourceModel.loading
+        }
+
+        boundsBehavior: Flickable.DragOverBounds
+
+        onDraggingHorizontallyChanged: {
+            if (!draggingHorizontally) {
+                if (showAllLeft.x > 0 || width > showAllRight.x) {
+                    root.showAll()
+                }
             }
         }
     }

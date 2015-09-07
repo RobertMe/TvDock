@@ -70,57 +70,31 @@ Page {
                     width: parent.width
                     columnSpacing: Theme.paddingLarge
 
-                    Column {
+                    MainMenuList {
+                        id: trendingMovies
+                        //% "Trending"
+                        title: qsTrId("list-trending")
+                        sourceModel: trakt.movies.trending()
+                        mode: "trending"
+                        pageName: Qt.resolvedUrl("Movies.qml")
                         width: moviesContainer.itemWidth
                         height: moviesContainer.itemHeight
-
-                        SectionHeader {
-                            height: implicitHeight + Theme.paddingSmall * 2
-                            //% "Trending"
-                            text: qsTrId("list-trending")
-
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: pageStack.push("Movies.qml", {model: trendingMovies.sourceModel, mode: "trending"})
-                            }
-                        }
-
-                        MainMenuList {
-                            id: trendingMovies
-                            height: parent.height - y
-                            sourceModel: trakt.movies.trending()
-                            delegate: MovieItem {
-                                grid: trendingMovies
-                            }
-
-                            onShowAll: pageStack.push("Movies.qml", {model: sourceModel, mode: "trending"})
+                        delegate: MovieItem {
+                            grid: trendingMovies.grid
                         }
                     }
 
-                    Column {
+                    MainMenuList {
+                        id: popularMovies
+                        //% "Popular"
+                        title: qsTrId("list-popular")
+                        sourceModel: trakt.movies.popular()
+                        mode: "popular"
+                        pageName: Qt.resolvedUrl("Movies.qml")
                         width: moviesContainer.itemWidth
                         height: moviesContainer.itemHeight
-
-                        SectionHeader {
-                            height: implicitHeight + Theme.paddingSmall * 2
-                            //% "Popular"
-                            text: qsTrId("list-popular")
-
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: pageStack.push("Movies.qml", {model: popularMovies.sourceModel, mode: "popular"})
-                            }
-                        }
-
-                        MainMenuList {
-                            id: popularMovies
-                            height: parent.height - y
-                            sourceModel: trakt.movies.popular()
-                            delegate: MovieItem {
-                                grid: popularMovies
-                            }
-
-                            onShowAll: pageStack.push("Movies.qml", {model: sourceModel, mode: "popular"})
+                        delegate: MovieItem {
+                            grid: popularMovies.grid
                         }
                     }
                 }
@@ -144,56 +118,31 @@ Page {
                     width: parent.width
                     columnSpacing: Theme.paddingLarge
 
-                    Column {
+                    MainMenuList {
+                        id: trendingShows
+                        //% "Trending"
+                        title: qsTrId("list-trending")
+                        sourceModel: trakt.shows.trending()
+                        mode: "trending"
+                        pageName: Qt.resolvedUrl("Shows.qml")
                         width: showsContainer.itemWidth
                         height: showsContainer.itemHeight
-
-                        SectionHeader {
-                            height: implicitHeight + Theme.paddingSmall * 2
-                            //% "Trending"
-                            text: qsTrId("list-trending")
-
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: pageStack.push("Shows.qml", {model: trendingShows.sourceModel, mode: "trending"})
-                            }
-                        }
-
-                        MainMenuList {
-                            id: trendingShows
-                            height: parent.height - y
-                            sourceModel: trakt.shows.trending()
-                            delegate: ShowItem {
-                                grid: trendingShows
-                            }
-
-                            onShowAll: pageStack.push("Shows.qml", {model: sourceModel, mode: "trending"})
+                        delegate: ShowItem {
+                            grid: trendingShows.grid
                         }
                     }
 
-                    Column {
+                    MainMenuList {
+                        id: popularShows
+                        //% "Popular"
+                        title: qsTrId("list-popular")
+                        sourceModel: trakt.shows.popular()
+                        mode: "popular"
+                        pageName: Qt.resolvedUrl("Shows.qml")
                         width: showsContainer.itemWidth
                         height: showsContainer.itemHeight
-
-                        SectionHeader {
-                            height: implicitHeight + Theme.paddingSmall * 2
-                            //% "Popular"
-                            text: qsTrId("list-popular")
-
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: pageStack.push("Shows.qml", {model: popularShows.sourceModel, mode: "popular"})
-                            }
-                        }
-
-                        MainMenuList {
-                            id: popularShows
-                            height: parent.height - y
-                            sourceModel: trakt.shows.popular()
-                            delegate: ShowItem {
-                                grid: popularShows
-                            }
-                            onShowAll: pageStack.push("Shows.qml", {model: sourceModel, mode: "popular"})
+                        delegate: ShowItem {
+                            grid: popularShows.grid
                         }
                     }
                 }
