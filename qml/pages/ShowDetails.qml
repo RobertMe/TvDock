@@ -5,14 +5,8 @@ import "../components"
 
 DetailsPage {
     id: page
-    property TraktShow show
+    property alias show: page.item
     property QtObject seasons: trakt.shows.getSeasons(show)
-
-    onShowChanged: {
-        if (show) {
-            show.load();
-        }
-    }
 
     onStatusChanged: {
         if (status === PageStatus.Active) {
@@ -22,8 +16,6 @@ DetailsPage {
 
     sourcePortrait: show.images.poster.medium
     sourceLandscape: show.images.fanart.medium
-    loading: !show.loaded
-    title: show.title
 
     DetailsFlickablePage {
         ItemDetails {

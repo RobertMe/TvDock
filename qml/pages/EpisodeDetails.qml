@@ -5,13 +5,7 @@ import "../components"
 
 DetailsPage {
     id: page
-    property TraktEpisode episode
-
-    onEpisodeChanged: {
-        if (episode) {
-            episode.load();
-        }
-    }
+    property alias episode: page.item
 
     onStatusChanged: {
         if (status === PageStatus.Active) {
@@ -21,9 +15,6 @@ DetailsPage {
 
     sourcePortrait: episode.season.images.poster.medium || episode.season.show.images.poster.medium
     sourceLandscape: episode.images.screenshot.medium || episode.season.show.images.fanart.medium
-    loading: !episode.loaded
-
-    title: episode.season.number + "x" + episode.number + ": " + episode.title
 
 
     DetailsFlickablePage {

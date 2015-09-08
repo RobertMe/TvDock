@@ -5,15 +5,9 @@ import "../components"
 
 DetailsPage {
     id: page
-    property TraktPerson person
+    property alias person: page.item
     property QtObject movies: trakt.people.getMovies(person)
     property QtObject shows: trakt.people.getShows(person)
-
-    onPersonChanged: {
-        if (person) {
-            person.load();
-        }
-    }
 
     onStatusChanged: {
         if (status === PageStatus.Active) {
@@ -22,8 +16,6 @@ DetailsPage {
     }
 
     sourcePortrait: person.images.headshot.medium
-    loading: !person.loaded
-    title: person.name
 
     DetailsFlickablePage {
         ItemDetails {

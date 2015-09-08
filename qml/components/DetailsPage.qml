@@ -8,9 +8,14 @@ Page {
 
     property url sourcePortrait
     property url sourceLandscape
-    property alias title: header.title
     default property alias contents: view.contents
-    property bool loading
+    property variant item
+
+    onItemChanged: {
+        if (item) {
+            item.load();
+        }
+    }
 
     property PullDownMenu pullDownMenu
 
@@ -39,8 +44,21 @@ Page {
     BusyIndicator {
         size: BusyIndicatorSize.Large
         anchors.centerIn: parent
-        running: root.loading
-        visible: root.loading
+        running: item.loading
+        visible: item.loading
+    }
+
+    Label {
+        //% "Error loading '%1'"
+        text: qsTrId("item-error").arg(item.title)
+        font.pixelSize: Theme.fontSizeLarge
+        color: Theme.highlightColor
+        anchors.verticalCenter: parent.verticalCenter
+        width: parent.width - (Theme.paddingLarge * 2)
+        x: Theme.paddingLarge
+        wrapMode: Text.Wrap
+        horizontalAlignment: lineCount === 1 ? Text.AlignHCenter : Text.AlignLeft
+        visible: item.error
     }
 
     SilicaFlickable {
@@ -51,6 +69,7 @@ Page {
         PageHeader {
             id: header
             wrapMode: Text.Wrap
+            title: item.title
 
             MouseArea {
                 anchors.fill: parent
@@ -66,7 +85,7 @@ Page {
             }
             y: header.height - (root.isPortrait ? Theme.paddingLarge : Theme.paddingMedium)
             height: flickable.height - y
-            visible: !root.loading
+            visible: item.loaded
         }
     }
 }

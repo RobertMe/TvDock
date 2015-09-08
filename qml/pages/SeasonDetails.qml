@@ -5,7 +5,7 @@ import "../components"
 
 DetailsPage {
     id: page
-    property TraktSeason season
+    property alias season: page.item
     property QtObject episodes: trakt.shows.getEpisodes(season)
 
     onStatusChanged: {
@@ -16,11 +16,6 @@ DetailsPage {
 
     sourcePortrait: season.images.poster.medium || season.show.images.poster.medium
     sourceLandscape: season.show.images.fanart.medium
-    loading: !season.loaded
-
-    //: Title of the season details page
-    //% "Season %1"
-    title: qsTrId("season-title").arg(season.number)
 
     DetailsFlickablePage {
         ItemDetails {

@@ -23,7 +23,7 @@
         <location filename="../qml/pages/MainMenu.qml" line="12"/>
         <location filename="../qml/pages/MainMenu.qml" line="64"/>
         <location filename="../qml/pages/Movies.qml" line="14"/>
-        <location filename="../qml/pages/PersonDetails.qml" line="67"/>
+        <location filename="../qml/pages/PersonDetails.qml" line="65"/>
         <source>Movies</source>
         <translation type="unfinished"></translation>
     </message>
@@ -42,7 +42,7 @@
     <message id="header-shows">
         <location filename="../qml/pages/MainMenu.qml" line="14"/>
         <location filename="../qml/pages/MainMenu.qml" line="112"/>
-        <location filename="../qml/pages/PersonDetails.qml" line="102"/>
+        <location filename="../qml/pages/PersonDetails.qml" line="100"/>
         <location filename="../qml/pages/Shows.qml" line="14"/>
         <source>TV Shows</source>
         <translation type="unfinished"></translation>
@@ -53,10 +53,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="item-rating">
-        <location filename="../qml/pages/EpisodeDetails.qml" line="61"/>
+        <location filename="../qml/pages/EpisodeDetails.qml" line="58"/>
         <location filename="../qml/pages/MovieDetails.qml" line="81"/>
-        <location filename="../qml/pages/SeasonDetails.qml" line="40"/>
-        <location filename="../qml/pages/ShowDetails.qml" line="48"/>
+        <location filename="../qml/pages/SeasonDetails.qml" line="35"/>
+        <location filename="../qml/pages/ShowDetails.qml" line="46"/>
         <source>%1% (%2 votes)</source>
         <oldsource>%1%% (%2 votes)</oldsource>
         <extracomment>Rating of an item, for example &quot;80% (100 votes)&quot;</extracomment>
@@ -64,15 +64,15 @@
     </message>
     <message id="item-homepage">
         <location filename="../qml/pages/MovieDetails.qml" line="88"/>
-        <location filename="../qml/pages/PersonDetails.qml" line="55"/>
-        <location filename="../qml/pages/ShowDetails.qml" line="55"/>
+        <location filename="../qml/pages/PersonDetails.qml" line="53"/>
+        <location filename="../qml/pages/ShowDetails.qml" line="53"/>
         <source>Homepage</source>
         <extracomment>Homepage of a movie/show/...</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="item-trailer">
         <location filename="../qml/pages/MovieDetails.qml" line="98"/>
-        <location filename="../qml/pages/ShowDetails.qml" line="65"/>
+        <location filename="../qml/pages/ShowDetails.qml" line="63"/>
         <source>Trailer</source>
         <extracomment>Trailer of movie/show/...
 ----------
@@ -108,19 +108,19 @@ Trailer of show/show/...</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="season-title">
-        <location filename="../qml/pages/SeasonDetails.qml" line="23"/>
+        <location filename="../libtraqt/traktseason.cpp" line="123"/>
         <source>Season %1</source>
         <extracomment>Title of the season details page</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="header-episodes">
-        <location filename="../qml/pages/SeasonDetails.qml" line="51"/>
+        <location filename="../qml/pages/SeasonDetails.qml" line="46"/>
         <source>Episodes</source>
         <extracomment>&quot;Episodes&quot; heading for season details</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="header-seasons">
-        <location filename="../qml/pages/ShowDetails.qml" line="81"/>
+        <location filename="../qml/pages/ShowDetails.qml" line="79"/>
         <source>Seasons</source>
         <extracomment>&quot;Seasons&quot; heading for show details</extracomment>
         <translation type="unfinished"></translation>
@@ -194,6 +194,11 @@ Trailer of show/show/...</extracomment>
         <location filename="../qml/cover/Authenticating.qml" line="22"/>
         <location filename="../qml/pages/Authenticating.qml" line="27"/>
         <source>Authenticating</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="item-error">
+        <location filename="../qml/components/DetailsPage.qml" line="47"/>
+        <source>Error loading &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

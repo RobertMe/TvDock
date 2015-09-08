@@ -5,13 +5,7 @@ import "../components"
 
 DetailsPage {
     id: page
-    property TraktMovie movie
-
-    onMovieChanged: {
-        if (movie) {
-            movie.load();
-        }
-    }
+    property alias movie: page.item
 
     onStatusChanged: {
         if (status === PageStatus.Active) {
@@ -21,8 +15,6 @@ DetailsPage {
 
     sourcePortrait: movie.images.poster.medium
     sourceLandscape: movie.images.fanart.medium
-    loading: !movie.loaded
-    title: movie.title
 
     pullDownMenu: PullDownMenu {
         enabled: trakt.authenticator.authorized
