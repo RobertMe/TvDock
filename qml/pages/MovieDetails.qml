@@ -17,19 +17,27 @@ DetailsPage {
     sourceLandscape: movie.images.fanart.medium
 
     pullDownMenu: PullDownMenu {
-        enabled: trakt.authenticator.authorized
+        enabled: trakt.authenticator.authorized || (movie.ids && movie.ids.imdb)
         visible: enabled
 
         MenuItem {
             //: Start checkin process for movie or episode
             //% "Check in"
             text: qsTrId("checkin-start")
+            visible: trakt.authenticator.authorized
             onClicked: {
                 var checkin = trakt.createCheckin(movie.ids);
                 if (checkin) {
                     pageStack.push("CheckInDialog.qml", {checkin: checkin});
                 }
             }
+        }
+
+        MenuItem {
+            //% "Show on IMDB"
+            text: qsTrId("item-show-imdb")
+            visible: movie.ids && movie.ids.imdb
+            onClicked: Qt.openUrlExternally(trakt.imdbBaseUrl + "/title/" + movie.ids.imdb)
         }
     }
 

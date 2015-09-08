@@ -17,6 +17,18 @@ DetailsPage {
     sourcePortrait: show.images.poster.medium
     sourceLandscape: show.images.fanart.medium
 
+    pullDownMenu: PullDownMenu {
+        enabled: show.ids && show.ids.imdb
+        visible: enabled
+
+        MenuItem {
+            //% "Show on IMDB"
+            text: qsTrId("item-show-imdb")
+            visible: show.ids && show.ids.imdb
+            onClicked: Qt.openUrlExternally(trakt.imdbBaseUrl + "/title/" + show.ids.imdb)
+        }
+    }
+
     DetailsFlickablePage {
         ItemDetails {
             anchors.fill: parent

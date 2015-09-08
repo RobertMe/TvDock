@@ -23,7 +23,7 @@
         <location filename="../qml/pages/MainMenu.qml" line="12"/>
         <location filename="../qml/pages/MainMenu.qml" line="64"/>
         <location filename="../qml/pages/Movies.qml" line="14"/>
-        <location filename="../qml/pages/PersonDetails.qml" line="65"/>
+        <location filename="../qml/pages/PersonDetails.qml" line="71"/>
         <source>Movies</source>
         <translation type="unfinished"></translation>
     </message>
@@ -42,7 +42,7 @@
     <message id="header-shows">
         <location filename="../qml/pages/MainMenu.qml" line="14"/>
         <location filename="../qml/pages/MainMenu.qml" line="112"/>
-        <location filename="../qml/pages/PersonDetails.qml" line="100"/>
+        <location filename="../qml/pages/PersonDetails.qml" line="106"/>
         <location filename="../qml/pages/Shows.qml" line="14"/>
         <source>TV Shows</source>
         <translation type="unfinished"></translation>
@@ -52,27 +52,36 @@
         <source>Show all</source>
         <translation type="unfinished"></translation>
     </message>
+    <message id="item-show-imdb">
+        <location filename="../qml/pages/EpisodeDetails.qml" line="25"/>
+        <location filename="../qml/pages/MovieDetails.qml" line="38"/>
+        <location filename="../qml/pages/PersonDetails.qml" line="26"/>
+        <location filename="../qml/pages/SeasonDetails.qml" line="26"/>
+        <location filename="../qml/pages/ShowDetails.qml" line="26"/>
+        <source>Show on IMDB</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message id="item-rating">
-        <location filename="../qml/pages/EpisodeDetails.qml" line="58"/>
-        <location filename="../qml/pages/MovieDetails.qml" line="81"/>
-        <location filename="../qml/pages/SeasonDetails.qml" line="35"/>
-        <location filename="../qml/pages/ShowDetails.qml" line="46"/>
+        <location filename="../qml/pages/EpisodeDetails.qml" line="63"/>
+        <location filename="../qml/pages/MovieDetails.qml" line="83"/>
+        <location filename="../qml/pages/SeasonDetails.qml" line="47"/>
+        <location filename="../qml/pages/ShowDetails.qml" line="52"/>
         <source>%1% (%2 votes)</source>
         <oldsource>%1%% (%2 votes)</oldsource>
         <extracomment>Rating of an item, for example &quot;80% (100 votes)&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="item-homepage">
-        <location filename="../qml/pages/MovieDetails.qml" line="88"/>
-        <location filename="../qml/pages/PersonDetails.qml" line="53"/>
-        <location filename="../qml/pages/ShowDetails.qml" line="53"/>
+        <location filename="../qml/pages/MovieDetails.qml" line="90"/>
+        <location filename="../qml/pages/PersonDetails.qml" line="59"/>
+        <location filename="../qml/pages/ShowDetails.qml" line="59"/>
         <source>Homepage</source>
         <extracomment>Homepage of a movie/show/...</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="item-trailer">
-        <location filename="../qml/pages/MovieDetails.qml" line="98"/>
-        <location filename="../qml/pages/ShowDetails.qml" line="63"/>
+        <location filename="../qml/pages/MovieDetails.qml" line="100"/>
+        <location filename="../qml/pages/ShowDetails.qml" line="69"/>
         <source>Trailer</source>
         <extracomment>Trailer of movie/show/...
 ----------
@@ -87,7 +96,7 @@ Trailer of show/show/...</extracomment>
     </message>
     <message id="checkin-start">
         <location filename="../qml/pages/CheckInDialog.qml" line="15"/>
-        <location filename="../qml/pages/MovieDetails.qml" line="32"/>
+        <location filename="../qml/pages/MovieDetails.qml" line="26"/>
         <source>Check in</source>
         <extracomment>Start checkin process for movie or episode</extracomment>
         <translation type="unfinished"></translation>
@@ -114,13 +123,13 @@ Trailer of show/show/...</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="header-episodes">
-        <location filename="../qml/pages/SeasonDetails.qml" line="46"/>
+        <location filename="../qml/pages/SeasonDetails.qml" line="58"/>
         <source>Episodes</source>
         <extracomment>&quot;Episodes&quot; heading for season details</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="header-seasons">
-        <location filename="../qml/pages/ShowDetails.qml" line="79"/>
+        <location filename="../qml/pages/ShowDetails.qml" line="85"/>
         <source>Seasons</source>
         <extracomment>&quot;Seasons&quot; heading for show details</extracomment>
         <translation type="unfinished"></translation>
@@ -197,7 +206,7 @@ Trailer of show/show/...</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="item-error">
-        <location filename="../qml/components/DetailsPage.qml" line="47"/>
+        <location filename="../qml/components/DetailsPage.qml" line="53"/>
         <source>Error loading &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>

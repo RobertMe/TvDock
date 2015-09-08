@@ -20,15 +20,18 @@ class Trakt : public QObject
     Q_PROPERTY(TraktMovies *movies READ movies CONSTANT)
     Q_PROPERTY(TraktShows *shows READ shows CONSTANT)
     Q_PROPERTY(TraktPeople *people READ people CONSTANT)
+    Q_PROPERTY(QString imdbBaseUrl READ imdbBaseUrl CONSTANT)
 public:
     explicit Trakt(QObject *parent = 0);
 
     TraktAuthenticator* authenticator() const;
     void setAuthenticator(TraktAuthenticator *authenticator);
 
-    TraktMovies *movies();
-    TraktShows *shows();
-    TraktPeople *people();
+    TraktMovies *movies() const;
+    TraktShows *shows() const;
+    TraktPeople *people() const;
+
+    QString imdbBaseUrl() const;
 
     Q_INVOKABLE TraktCheckin *createCheckin(TraktIds *ids);
 

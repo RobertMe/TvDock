@@ -53,19 +53,24 @@ void Trakt::setAuthenticator(TraktAuthenticator *authenticator)
     emit authenticatorChanged();
 }
 
-TraktMovies *Trakt::movies()
+TraktMovies *Trakt::movies() const
 {
     return m_movies;
 }
 
-TraktShows *Trakt::shows()
+TraktShows *Trakt::shows() const
 {
     return m_shows;
 }
 
-TraktPeople *Trakt::people()
+TraktPeople *Trakt::people() const
 {
     return m_people;
+}
+
+QString Trakt::imdbBaseUrl() const
+{
+    return "http://www.imdb.com";
 }
 
 TraktCheckin *Trakt::createCheckin(TraktIds *ids)

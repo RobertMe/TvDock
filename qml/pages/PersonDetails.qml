@@ -17,6 +17,18 @@ DetailsPage {
 
     sourcePortrait: person.images.headshot.medium
 
+    pullDownMenu: PullDownMenu {
+        enabled: person.ids && person.ids.imdb
+        visible: enabled
+
+        MenuItem {
+            //% "Show on IMDB"
+            text: qsTrId("item-show-imdb")
+            visible: person.ids && person.ids.imdb
+            onClicked: Qt.openUrlExternally(trakt.imdbBaseUrl + "/name/" + person.ids.imdb)
+        }
+    }
+
     DetailsFlickablePage {
         ItemDetails {
             anchors.fill: parent

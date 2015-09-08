@@ -17,6 +17,18 @@ DetailsPage {
     sourcePortrait: season.images.poster.medium || season.show.images.poster.medium
     sourceLandscape: season.show.images.fanart.medium
 
+    pullDownMenu: PullDownMenu {
+        enabled: season.show.ids && season.show.ids.imdb
+        visible: enabled
+
+        MenuItem {
+            //% "Show on IMDB"
+            text: qsTrId("item-show-imdb")
+            visible: season.show.ids && season.show.ids.imdb
+            onClicked: Qt.openUrlExternally(trakt.imdbBaseUrl + "/title/" + season.show.ids.imdb + "/episodes?season=" + season.number)
+        }
+    }
+
     DetailsFlickablePage {
         ItemDetails {
             anchors.fill: parent
